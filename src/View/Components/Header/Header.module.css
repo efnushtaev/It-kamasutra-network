@@ -1,0 +1,15 @@
+.header {
+  grid-area: h;
+  background: linear-gradient(180deg, #222D2B 0%, #293735 0.01%, #142321 100%);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  padding-left: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  z-index: 10000;
+}
+
+.logo {
+  display: block;
+  height: 60px;
+  width: 60px;
+}

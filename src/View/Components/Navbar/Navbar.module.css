@@ -1,0 +1,32 @@
+.navigation {
+  grid-area: n;
+  background-color: #C1D1F7;
+  padding-left: 60px;
+  padding-top: 24px;
+}
+
+.navigation>div>a {
+  font-weight: normal;
+  font-size: 1.25em;
+  line-height: 160%;
+  /* identical to box height, or 32px */
+  text-transform: uppercase;
+  color: #100C0B;
+cursor: pointer;
+} 
+.navigation>div{
+  margin-bottom: 12px;
+}
+
+.navigation>div:nth-last-child(1) {
+  margin-top: 40px;
+}
+.navigation>div>a:hover {
+  font-weight: normal;
+  font-size: 1.25em;
+  line-height: 160%;
+  /* identical to box height, or 32px */
+  text-transform: uppercase;
+  color: #75625D;
+  padding-bottom: 12px;
+} 

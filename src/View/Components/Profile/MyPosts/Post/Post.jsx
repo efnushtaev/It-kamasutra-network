@@ -1,15 +1,15 @@
 import React from 'react';
 import classes from './Post.module.css';
 
-let Post = () => {
+let Post = (props) => {
     return (
             <div>
     
-                <img>
-                    Ava
-                </img>
                 <div>
-text
+                    {props.message}
+                </div>
+                <div>
+                   text
                 </div>
                 <hr/>
             </div>

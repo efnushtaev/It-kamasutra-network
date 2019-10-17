@@ -8,8 +8,8 @@ let MyPosts = () => {
                 <textarea></textarea>
                 <button>Add post</button>
                 <div>
-                    <Post/>
-                    <Post/>
+                    <Post message="Hi! this is a first post"/>
+                    <Post message="And this is a second one"/>
                     <Post/>
                     <Post/>
                     <Post/>

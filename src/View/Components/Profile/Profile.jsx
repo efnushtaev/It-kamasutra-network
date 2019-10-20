@@ -4,7 +4,7 @@ import MyPosts from './MyPosts/MyPosts';
 
 let Profile = () => {
     return (
-        <main className={classes.content}>
+        <main>
             <div className={classes.profile}> 
                 <div className={classes.inner}>
 

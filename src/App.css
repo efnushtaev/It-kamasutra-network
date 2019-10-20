@@ -1,13 +1,18 @@
 .app-wrapper {
   font-style: 'Raleway', sans-serif;
   display: grid;
-
-  grid-template-areas: 
+  grid-template-areas:
     "h h"
     "n c";
   grid-template-rows: auto 1fr;
   grid-template-columns: minmax(200px, 20%) 80%;
-  
+
+}
+
+.app-wrapper-content {
+  position: relative;
+  grid-area: c;
+  background-color: #EBEBEB;
 }
 
 
@@ -19,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

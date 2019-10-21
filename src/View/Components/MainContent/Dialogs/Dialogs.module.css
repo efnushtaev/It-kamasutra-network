@@ -2,7 +2,7 @@
   .profile {
     width: 100%;
     height: 160px;
-    background: url("./../../Images/header-bg.png") center center no-repeat;
+    background: url("./../../../Images/header-bg.png") center center no-repeat;
     background-size: cover;
     
   }
@@ -22,7 +22,7 @@
   }
   
   .ava {
-    background: url("./../../Images/ava.png") center center no-repeat;
+    background: url("./../../../Images/ava.png") center center no-repeat;
     width: 140px;
     height: 140px;
     grid-area: a;

@@ -5,19 +5,19 @@ let Navbar = () => {
     return (
         <nav className={classes.navigation}>
             <div>
-            <a>Profile</a>
+                <a href='/profile'>Profile</a>
             </div>
             <div>
-            <a>Messages</a>
+                <a href='/dialogs'>Messages</a>
             </div>
             <div>
-            <a>News</a>
+                <a href='./news'>News</a>
             </div>
             <div>
-            <a>Music</a>
+                <a href='/music'>Music</a>
             </div>
             <div>
-            <a>Settings</a>
+                <a>Settings</a>
             </div>
         </nav>
     )

@@ -1,3 +1,10 @@
+.item a {
+  text-decoration: none;
+}
+.item .active {
+  color: rgb(211, 50, 6);
+}
+
 .navigation {
   grid-area: n;
   background-color: #C1D1F7;
@@ -27,6 +34,6 @@ cursor: pointer;
   line-height: 160%;
   /* identical to box height, or 32px */
   text-transform: uppercase;
-  color: #75625D;
+  color: rgb(92, 56, 47);
   padding-bottom: 12px;
 } 

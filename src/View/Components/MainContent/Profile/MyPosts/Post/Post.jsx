@@ -9,7 +9,7 @@ let Post = (props) => {
                     {props.message}
                 </div>
                 <div>
-                   text
+                   {props.likesCount}
                 </div>
                 <hr/>
             </div>

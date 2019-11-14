@@ -6,8 +6,23 @@ import App from './App';
 
 import * as serviceWorker from './serviceWorker';
 
+let postsData = [
+    { id: 1, message: 'Hi! this is a first post', likesCount: '23' },
+    { id: 2, message: 'And this is a second one', likesCount: '11' }
+  ];
+  let dialogsData = [
+    { id: 1, name: 'Efim' },
+    { id: 2, name: 'Dima' },
+    { id: 3, name: 'Timur' },
+  ];
 
-ReactDOM.render(<App />, document.getElementById('root'));
+  let messagesData = [
+    { id: 1, message: 'Hi!' },
+    { id: 2, message: 'Hi!, how are you?' },
+    { id: 3, message: 'I\'m YO' }
+  ]
+
+ReactDOM.render(<App postsData={postsData} dialogsData={dialogsData} messagesData={messagesData}/>, document.getElementById('root'));
 // ReactDOM.render(<List />, document.getElementById('roote'));
 
 

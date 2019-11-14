@@ -12,21 +12,7 @@ import 'logo.svg';
 import './App.css';
 
 function App(props) {
-  let postsData = [
-    { id: 1, message: 'Hi! this is a first post', likesCount: '23' },
-    { id: 2, message: 'And this is a second one', likesCount: '11' }
-  ];
-  let dialogsData = [
-    { id: 1, name: 'Efim' },
-    { id: 2, name: 'Dima' },
-    { id: 3, name: 'Timur' },
-  ];
 
-  let messagesData = [
-    { id: 1, message: 'Hi!' },
-    { id: 2, message: 'Hi!, how are you?' },
-    { id: 3, message: 'I\'m YO' }
-  ]
   return (
     <BrowserRouter>
 
@@ -35,8 +21,8 @@ function App(props) {
         <Navbar />
         <div className="app-wrapper-content">
 
-          <Route path="/dialogs" render={() => <Dialogs dialogsData={dialogsData} messagesData={messagesData}/>} />
-          <Route path="/profile" render={() => <Profile postsData={postsData} />} />
+          <Route path="/dialogs" render={() => <Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>} />
+          <Route path="/profile" render={() => <Profile postsData={props.postsData} />} />
 
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />

@@ -3,16 +3,15 @@ import classes from './Post.module.css';
 
 let Post = (props) => {
     return (
+        <div>
             <div>
-    
-                <div>
-                    {props.message}
-                </div>
-                <div>
-                   {props.likesCount}
-                </div>
-                <hr/>
+                {props.message}
             </div>
+            <div>
+                {props.likesCount}
+            </div>
+            <hr />
+        </div>
     )
 }
 

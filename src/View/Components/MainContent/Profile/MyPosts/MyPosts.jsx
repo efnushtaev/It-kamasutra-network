@@ -6,8 +6,8 @@ const MyPosts = (props) => {
 
     let postElements =
         props.postsData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
-    
-        return (
+
+    return (
         <div className={classes.container}>
             <textarea></textarea>
             <button>Add post</button>

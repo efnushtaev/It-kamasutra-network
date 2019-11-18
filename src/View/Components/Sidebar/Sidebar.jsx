@@ -1,8 +1,8 @@
 import React from 'react';
-import classes from './Navbar.module.css';
+import classes from './Sidebar.module.css';
 import {NavLink} from 'react-router-dom';
 
-let Navbar = () => {
+let Sidebar = () => {
     return (
         <nav className={classes.navigation}>
             <div className={classes.item}>
@@ -17,6 +17,9 @@ let Navbar = () => {
             <div className={classes.item}>
                 <NavLink activeClassName={classes.active} to='/music'>Music</NavLink>
             </div>
+            <div className={classes.item}>
+                <NavLink activeClassName={classes.active} to='/myfriends'>My Friends</NavLink>
+            </div>
             <div>
                 <a>Settings</a>
             </div>
@@ -24,4 +27,4 @@ let Navbar = () => {
     )
 }
 
-export default Navbar;
+export default Sidebar;

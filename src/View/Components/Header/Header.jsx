@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Header.module.css';
+import classes from './Header.module.scss';
 import logo from "./../../Images/logo.png";
 
 let Header = () => {

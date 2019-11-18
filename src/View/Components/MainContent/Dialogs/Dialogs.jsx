@@ -10,7 +10,7 @@ const Dialogs = (props) => {
         props.state.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />)
 
     let messageElements =
-        props.state.messagesData.map(m => <Message message={m.message} />)
+        props.state.messagesData.map(m => <Message className={props.come === 'in' ? classes.messageIn : classes.messageOut} message={m.message} />)
 
     return (
         <div className={classes.dialogs}>

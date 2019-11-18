@@ -35,11 +35,42 @@ let state = {
             },
             {
                 id: 2,
-                message: 'Hi!, how are you?'
+                message: 'Hi!, how are you?',
+                come: 'out'
             },
             {
                 id: 3,
-                message: 'How is your projects?'
+                message: 'How is your projects?',
+                come: 'out'
+            },
+            {
+                id: 4,
+                message: 'My projects is yo',
+                come: 'in'
+            }
+        ]
+    },
+
+    myFriends: {
+        friendItem: [{
+                id: 1,
+                name: 'Dima',
+                ava: true
+            },
+            {
+                id: 2,
+                name: 'Timur',
+                ava: true
+            },
+            {
+                id: 3,
+                name: 'Sasha',
+                ava: true
+            },
+            {
+                id: 4,
+                name: 'Jenya',
+                ava: true
             }
         ]
     }

@@ -1,8 +1,9 @@
 import React from 'react';
-import classes from './Dialogs.module.css';
+import classes from './dialogs.module.scss';
 import { NavLink } from 'react-router-dom';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
+import elFormsTextarea from './../../../Styles/Elements/Forms/textarea.module.scss'
 
 const Dialogs = (props) => {
 
@@ -10,9 +11,17 @@ const Dialogs = (props) => {
         props.state.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />)
 
     let messageElements =
-        props.state.messagesData.map(m => <Message className={props.come === 'in' ? classes.messageIn : classes.messageOut} message={m.message} />)
+        props.state.messagesData.map(m => <Message message={m.message} come={m.come}/>)
+
+    let newMessage = React.createRef()
+
+    let addMessage = () => {
+        let message = newMessage.current.value
+        alert(message)
+    }
 
     return (
+        <>
         <div className={classes.dialogs}>
             <div className={classes.dialogItems}>
                 {dialogElements}
@@ -21,6 +30,12 @@ const Dialogs = (props) => {
                 {messageElements}
             </div>
         </div>
+        <div className={elFormsTextarea.container}>
+
+            <textarea placeholder="NEW MESSAGE..." ref={newMessage}></textarea>
+            <button onClick={addMessage}>Add message</button>
+        </div>
+        </>
     )
 }
 

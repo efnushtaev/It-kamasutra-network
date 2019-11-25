@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 // import App from './list';
 
+import {addPost} from './redux/state'
+
 import * as serviceWorker from './serviceWorker';
 
 import state from './redux/state';
 
-ReactDOM.render(<App state={state}/>, document.getElementById('root'));
+ReactDOM.render(<App state={state} addPost={addPost}/>, document.getElementById('root'));
 // ReactDOM.render(<List />, document.getElementById('roote'));
 
 

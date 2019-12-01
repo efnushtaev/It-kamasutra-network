@@ -8,7 +8,8 @@ const MyPosts = (props) => {
 
     let addPost = () => {
         let post = newPost.current.value;
-        props.addPost(post)
+        props.addPost(post);
+        newPost.current.value = null;
     }
 
     let postElements =

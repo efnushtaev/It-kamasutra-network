@@ -12,14 +12,18 @@ const MyPosts = (props) => {
         newPost.current.value = null;
     }
 
-    let postElements =
-        props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+    let updateNewPostText = () => {
+        let text = newPost.current.value;
+        props.updateNewPostText(text);
+    }
+
+    let postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
 
     return (
         <div className={classes.container}>
             <div className={elFormsTextarea.container}>
 
-                <textarea placeholder="NEW POST..." ref={newPost}></textarea>
+                <textarea placeholder="NEW POST..." ref={newPost} onChange={updateNewPostText} value={props.newPostText}/>
                 <button onClick={addPost}>Add post</button>
             </div>
             <div>

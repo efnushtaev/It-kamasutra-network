@@ -5,7 +5,9 @@ import App from './App';
 // import App from './list';
 import {BrowserRouter} from 'react-router-dom'
 
-import {addPost} from './redux/state'
+import {addPost} from './redux/state';
+import {updateNewPostText} from './redux/state';
+
 
 import * as serviceWorker from './serviceWorker';
 
@@ -16,7 +18,11 @@ export let rerenderEntireTree = (state) => {
 
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state} addPost={addPost}/>
+            <App 
+                state={state} 
+                addPost={addPost}
+                updateNewPostText={updateNewPostText}
+            />
         </BrowserRouter>, document.getElementById('root')
     );
 }

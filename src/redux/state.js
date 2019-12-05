@@ -13,7 +13,8 @@ let state = {
                 message: 'And this is a second one',
                 likesCount: '11'
             }
-        ]
+        ],
+        newPostText: ''
     },
 
     dialogPage: {
@@ -85,10 +86,20 @@ export let addPost = (textPost) => {
         message: textPost,
         likesCount: 0
     };
+    state.profilePage.newPostText = '';
 
     state.profilePage.postsData.push(post);
+    rerenderEntireTree(state);
+}
 
+export let updateNewPostText = (text) => {
+    state.profilePage.newPostText = text;
+    console.log(text);
     rerenderEntireTree(state);
 }
 
 export default state;
+
+
+
+window.state = state;

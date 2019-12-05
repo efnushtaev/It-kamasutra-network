@@ -8,7 +8,12 @@ let Profile = (props) => {
     return (
         <main>
            <ProfileInfo />
-           <MyPosts posts={props.state.postsData} addPost={props.addPost}/>
+           <MyPosts 
+                posts={props.profilePage.postsData}
+                newPostText={props.profilePage.newPostText}
+                addPost={props.addPost}
+                updateNewPostText={props.updateNewPostText}
+            />
         </main>
     )
 }

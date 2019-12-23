@@ -1,4 +1,12 @@
-import {rerenderEntireTree} from './../render';
+let rerenderEntireTree = () => {
+    console.log('Staged');
+}
+
+export let subscribe = (observer) => {
+    rerenderEntireTree = observer
+}
+
+
 
 let state = {
 

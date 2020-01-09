@@ -2,18 +2,19 @@ import React from 'react';
 import Post from './Post/Post';
 import classes from './MyPosts.module.css';
 import elFormsTextarea from './../../../../Styles/Elements/Forms/textarea.module.scss';
+import { addPostCreateAction, updateNewPostTextCreateAction } from '../../../../../redux/state';
 
 const MyPosts = (props) => {
     let newPost = React.createRef();
 
     let addPost = () => {
-        props.dispatch({ type:'ADD-POST' })
+        props.dispatch(addPostCreateAction())
 
     }
 
     let updateNewPostText = () => {
         let text = newPost.current.value;
-        props.dispatch({type:'UPDATE-NEW-POST-TEXT', newText: text})
+        props.dispatch(updateNewPostTextCreateAction(text))
     }
 
     let postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)

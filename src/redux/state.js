@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
+const ADD_MESSAGE = 'ADD_MESSAGE'; 
 
 let store = {
     _state: {
@@ -53,7 +55,8 @@ let store = {
                     message: 'My projects is yo',
                     come: 'in'
                 }
-            ]
+            ],
+            newMessagetText: ''
         },
 
         myFriends: {
@@ -104,17 +107,32 @@ let store = {
             this._state.profilePage.newPostText = action.newText;
             console.log(action.newText);
             this._callObserver(this._state);
+        } else if (action.type === 'UPDATE_NEW_MESSAGE_TEXT') {
+            this._state.dialogPage.newMessagetText = action.text;
+            this._callObserver(this._state);
+        } else if (action.type === 'ADD_MESSAGE') {
+            let message = {
+                id: 6,
+                message: this._state.dialogPage.newMessagetText
+            };
+            this._state.dialogPage.newMessagetText =''
+            this._state.dialogPage.messagesData.push(message);
+            this._callObserver(this._state);
         }
     }
 }
 
 export const addPostCreateAction = () => ({type: ADD_POST});
-
-
 export const updateNewPostTextCreateAction = (text) => ({
     type: UPDATE_NEW_POST_TEXT,
     newText: text
 })
+export const updateNewMessageCreateAction = (text) => ({
+    type: UPDATE_NEW_MESSAGE_TEXT,
+    text: text
+})
+export const addMessageActionCreate = () => ({type:ADD_MESSAGE})
+
 export default store;
 
 

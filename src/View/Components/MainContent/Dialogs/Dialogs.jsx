@@ -4,8 +4,10 @@ import { NavLink } from 'react-router-dom';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import elFormsTextarea from './../../../Styles/Elements/Forms/textarea.module.scss'
+import { updateNewMessageCreateAction, addMessageActionCreate } from './../../../../redux/state';
 
 const Dialogs = (props) => {
+    let newText = React.createRef()
 
     let dialogElements =
         props.state.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />)
@@ -13,12 +15,15 @@ const Dialogs = (props) => {
     let messageElements =
         props.state.messagesData.map(m => <Message message={m.message} come={m.come}/>)
 
-    let newMessage = React.createRef()
+        let updatingNewMessage = () => {
+            let text = newText.current.value;
+            props.dispatch(updateNewMessageCreateAction(text))
+        } 
 
-    let addMessage = () => {
-        let message = newMessage.current.value
-        alert(message)
-    }
+        let postNewMessage = () => {
+            
+            props.dispatch(addMessageActionCreate())
+        }
 
     return (
         <>
@@ -32,8 +37,8 @@ const Dialogs = (props) => {
         </div>
         <div className={elFormsTextarea.container}>
 
-            <textarea placeholder="NEW MESSAGE..." ref={newMessage}></textarea>
-            <button onClick={addMessage}>Add message</button>
+            <textarea onChange={updatingNewMessage} value={props.newMessagetText} placeholder="NEW MESSAGE..." ref={newText}></textarea>
+            <button onClick={postNewMessage}>Add message</button>
         </div>
         </>
     )

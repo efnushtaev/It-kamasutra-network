@@ -1,3 +1,6 @@
+import profilePageReducer from './reducer/profilePage-reducer';
+import dialogPageReducer from './reducer/dialogPage-reducer';
+
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
@@ -5,7 +8,6 @@ const ADD_MESSAGE = 'ADD_MESSAGE';
 
 let store = {
     _state: {
-
         profilePage: {
             postsData: [{
                     id: 1,
@@ -56,7 +58,7 @@ let store = {
                     come: 'in'
                 }
             ],
-            newMessagetText: ''
+            newMessageText: ''
         },
 
         myFriends: {
@@ -94,31 +96,10 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD_POST') {
-            let post = {
-                id: 3,
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            };
-            this._state.profilePage.newPostText = '';
-            this._state.profilePage.postsData.push(post);
-            this._callObserver(this._state);
-        } else if (action.type === 'UPDATE_NEW_POST_TEXT') {
-            this._state.profilePage.newPostText = action.newText;
-            console.log(action.newText);
-            this._callObserver(this._state);
-        } else if (action.type === 'UPDATE_NEW_MESSAGE_TEXT') {
-            this._state.dialogPage.newMessagetText = action.text;
-            this._callObserver(this._state);
-        } else if (action.type === 'ADD_MESSAGE') {
-            let message = {
-                id: 6,
-                message: this._state.dialogPage.newMessagetText
-            };
-            this._state.dialogPage.newMessagetText =''
-            this._state.dialogPage.messagesData.push(message);
-            this._callObserver(this._state);
-        }
+        this._state.profilePage = profilePageReducer(action, this._state.profilePage);
+        this._state.dialogPage = dialogPageReducer(action, this._state.dialogPage);
+
+        this._callObserver(this._state);
     }
 }
 

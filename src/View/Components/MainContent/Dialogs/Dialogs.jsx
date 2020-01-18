@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import elFormsTextarea from './../../../Styles/Elements/Forms/textarea.module.scss'
-import { updateNewMessageCreateAction, addMessageActionCreate } from './../../../../redux/state';
+import { updateNewMessageCreateAction, addMessageActionCreate } from './../../../../redux/reducer/dialogPage-reducer';
 
 const Dialogs = (props) => {
     let newText = React.createRef()

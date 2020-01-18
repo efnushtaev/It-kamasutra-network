@@ -1,21 +1,29 @@
-
-
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
-const ADD_MESSAGE = 'ADD_MESSAGE'; 
+const ADD_MESSAGE = 'ADD_MESSAGE';
 const dialogPageReducer = (action, state) => {
 
-
-    if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+    switch (action.type) {
+        case UPDATE_NEW_MESSAGE_TEXT:
         state.newMessageText = action.text;
-    } else if (action.type === ADD_MESSAGE) {
+        case ADD_MESSAGE:
         let message = {
             id: 6,
             message: state.newMessageText
         };
-        state.newMessageText ='';
+        state.newMessageText = '';
         state.messagesData.push(message);
-    }   
-return state;
+        default:
+            return state;
+    }
 }
+
+export const updateNewMessageCreateAction = (text) => ({
+    type: UPDATE_NEW_MESSAGE_TEXT,
+    text: text
+})
+export const addMessageActionCreate = () => ({
+    type: ADD_MESSAGE
+})
+
 
 export default dialogPageReducer;

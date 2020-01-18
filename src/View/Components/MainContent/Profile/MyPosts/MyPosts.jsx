@@ -2,7 +2,7 @@ import React from 'react';
 import Post from './Post/Post';
 import classes from './MyPosts.module.css';
 import elFormsTextarea from './../../../../Styles/Elements/Forms/textarea.module.scss';
-import { addPostCreateAction, updateNewPostTextCreateAction } from '../../../../../redux/state';
+import { addPostCreateAction, updateNewPostTextCreateAction } from '../../../../../redux/reducer/profilePage-reducer';
 
 const MyPosts = (props) => {
     let newPost = React.createRef();

@@ -1,13 +1,10 @@
-import store from './redux/state';
+import store from './redux/store-redux';
 import * as serviceWorker from './serviceWorker';
-// import App from './list';
-
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import App from './list';
 import {BrowserRouter} from 'react-router-dom';
 
 
@@ -27,7 +24,10 @@ export let rerenderEntireTree = (state) => {
 
 rerenderEntireTree(store.getState());
 
-store.subscribe(rerenderEntireTree);
+store.subscribe(()=>{
+    // let state = store.getState()
+    rerenderEntireTree(store.getState())
+});
 // export default rerenderEntireTree;
 // ReactDOM.render(<List />, document.getElementById('roote'));
 

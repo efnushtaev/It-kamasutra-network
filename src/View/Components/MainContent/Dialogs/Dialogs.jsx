@@ -37,7 +37,7 @@ const Dialogs = (props) => {
         </div>
         <div className={elFormsTextarea.container}>
 
-            <textarea onChange={updatingNewMessage} value={props.newMessageText} placeholder="NEW MESSAGE..." ref={newText}></textarea>
+            <textarea onChange={updatingNewMessage} value={props.state.newMessageText} placeholder="NEW MESSAGE..." ref={newText}></textarea>
             <button onClick={postNewMessage}>Add message</button>
         </div>
         </>

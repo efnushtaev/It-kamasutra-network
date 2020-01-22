@@ -9,24 +9,23 @@ import {BrowserRouter} from 'react-router-dom';
 
 
 
-export let rerenderEntireTree = (state) => {
+export let rerenderEntireTree = (store) => {
     console.log('rerender')
     ReactDOM.render(
         <BrowserRouter>
             <App 
-                state={state} 
-                dispatch={store.dispatch.bind(store)}
-                
+                store={store}
+                state={store.getState()}
             />
         </BrowserRouter>, document.getElementById('root')
     );
 }
 
-rerenderEntireTree(store.getState());
+rerenderEntireTree(store);
 
 store.subscribe(()=>{
     // let state = store.getState()
-    rerenderEntireTree(store.getState())
+    rerenderEntireTree(store)
 });
 // export default rerenderEntireTree;
 // ReactDOM.render(<List />, document.getElementById('roote'));

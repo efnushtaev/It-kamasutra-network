@@ -7,14 +7,13 @@ import { addPostCreateAction, updateNewPostTextCreateAction } from '../../../../
 const MyPosts = (props) => {
     let newPost = React.createRef();
 
-    let addPost = () => {
-        props.dispatch(addPostCreateAction())
-
+    let onPostChange = () => {
+        let text = newPost.current.value;
+        props.updateNewPostText(text)
     }
 
-    let updateNewPostText = () => {
-        let text = newPost.current.value;
-        props.dispatch(updateNewPostTextCreateAction(text))
+    let onAddPost = () => {
+        props.addPost();
     }
 
     let postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
@@ -23,8 +22,8 @@ const MyPosts = (props) => {
         <div className={classes.container}>
             <div className={elFormsTextarea.container}>
 
-                <textarea placeholder="NEW POST..." ref={newPost} onChange={updateNewPostText} value={props.newPostText}/>
-                <button onClick={addPost}>Add post</button>
+                <textarea placeholder="NEW POST..." ref={newPost} onChange={onPostChange} value={props.newPostText}/>
+                <button onClick={onAddPost}>Add post</button>
             </div>
             <div>
                 {postElements}

@@ -13,7 +13,7 @@ let initialState = {
         likesCount: '11'
     }
 ],
-newPostText: ''
+newPostText: 'sss'
 }
 
 const profilePageReducer = (state = initialState, action) => {

@@ -6,32 +6,25 @@ import Message from './Message/Message';
 import elFormsTextarea from './../../../Styles/Elements/Forms/textarea.module.scss';
 import { updateNewMessageCreateAction, addMessageActionCreate } from '../../../../redux/reducer/dialogPage-reducer';
 import Dialogs from './Dialogs';
-import StoreContext from '../../../../StoreContext';
+import { connect } from 'react-redux';
 
-const DialogsContainer = () => {
+    
+let mapStateToProps = (state) => {
+    return {
+        dialogsData: state.dialogPage.dialogsData,
+        messagesData: state.dialogPage.messagesData,
+        newMessageText: state.dialogPage.newMessageText
+    }
+};
 
-    return (
-    <StoreContext.Consumer>
-        {(store) => {
-            let state = store.getState().dialogPage;
-    
-            let updatingBodyMessage = (text) => { 
-                let action = updateNewMessageCreateAction(text)
-                store.dispatch(action)
-            } 
-    
-            let postNewMessage = () => {
-                store.dispatch(addMessageActionCreate())
-            }
-            return <Dialogs postNewMessage={postNewMessage} 
-                            updatingBodyMessage={updatingBodyMessage} 
-                            dialogsData={state.dialogsData} 
-                            messagesData={state.messagesData} 
-                            newMessageText={state.newMessageText}/>
-            }
+let mapDispatchToProps = (dispatch) => {
+    return {
+        postNewMessage: () => {dispatch(addMessageActionCreate())},
+        updatingBodyMessage: (text) => {dispatch(updateNewMessageCreateAction(text))
         }
+    }
+}
 
-    </StoreContext.Consumer>
-    )}
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
-export default DialogsContainer
+export default DialogsContainer; 

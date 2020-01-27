@@ -4,34 +4,28 @@ import elFormsTextarea from './../../../../Styles/Elements/Forms/textarea.module
 import { addPostCreateAction, updateNewPostTextCreateAction } from '../../../../../redux/reducer/profilePage-reducer';
 import MyPosts from './MyPosts';
 import store from '../../../../../redux/store-redux';
-import StoreContext from '../../../../../StoreContext';
-const MyPostsContainer = () => {
+import { connect } from 'react-redux';
 
+let mapStateToProps = (state) => {
+    return {
+        posts: state.profilePage.postsData,
+        newPostText: state.profilePage.newPostText
+    }
+};
 
-
-
-
-
-    return (
-        <StoreContext.Consumer>
-            {(store) => {
-
-    
-            let state = store.getState().profilePage;
-            let addPost = () => {
-                store.dispatch(addPostCreateAction())
-            }
-
-            let onPostChange = (text) => {
-                let action = updateNewPostTextCreateAction(text);
-               store.dispatch(action);
-            }
-            
-           return <MyPosts updateNewPostText={onPostChange} addPost={addPost} posts={state.postsData} newPostText={state.newPostText}/>
-            }
-        }
-        </StoreContext.Consumer>
-    )
+let mapDispatchToProps = (dispatch) => {
+     return {
+         addPost: ()=> {
+            dispatch(addPostCreateAction())
+         },
+         onPostChange: (text) => {
+            dispatch(updateNewPostTextCreateAction(text));
+         }
+     }
 }
+
+
+
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps )(MyPosts)
 
 export default MyPostsContainer;

@@ -28,7 +28,7 @@ const Dialogs = (props) => {
 
 
     return (
-        <>
+        <div>
         <div className={classes.dialogs}>
             <div className={classes.dialogItems}>
                 {dialogElements}
@@ -42,7 +42,7 @@ const Dialogs = (props) => {
             <textarea onChange={updateBodyPost} value={props.newMessageText} placeholder="NEW MESSAGE..." ref={newText}></textarea>
             <button onClick={addPost}>Add message</button>
         </div>
-        </>
+        </div>
     )
 }
 

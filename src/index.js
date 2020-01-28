@@ -10,8 +10,7 @@ import {Provider} from 'react-redux';
 
 
 
-export let rerenderEntireTree = (store) => {
-    console.log('rerender')
+
     ReactDOM.render(
         <BrowserRouter>
         <Provider store={store}>
@@ -20,14 +19,7 @@ export let rerenderEntireTree = (store) => {
         </Provider>
         </BrowserRouter>, document.getElementById('root')
     );
-}
 
-rerenderEntireTree(store);
-
-store.subscribe(()=>{
-    // let state = store.getState()
-    rerenderEntireTree(store)
-});
 // export default rerenderEntireTree;
 // ReactDOM.render(<List />, document.getElementById('roote'));
 

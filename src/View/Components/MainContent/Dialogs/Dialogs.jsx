@@ -7,7 +7,7 @@ import elFormsTextarea from './../../../Styles/Elements/Forms/textarea.module.sc
 import { updateNewMessageCreateAction, addMessageActionCreate } from './../../../../redux/reducer/dialogPage-reducer';
 
 const Dialogs = (props) => {
-    debugger;
+ 
     let newText = React.createRef()
 
     

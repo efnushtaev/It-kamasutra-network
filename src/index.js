@@ -11,14 +11,14 @@ import {Provider} from 'react-redux';
 
 
 
-    ReactDOM.render(
-        <BrowserRouter>
+ReactDOM.render(
+    <BrowserRouter>
         <Provider store={store}>
 
             <App />
         </Provider>
-        </BrowserRouter>, document.getElementById('root')
-    );
+    </BrowserRouter>, document.getElementById('root')
+);
 
 // export default rerenderEntireTree;
 // ReactDOM.render(<List />, document.getElementById('roote'));

@@ -1,9 +1,5 @@
-import React from 'react';
-import Post from './Post/Post';
-import elFormsTextarea from './../../../../Styles/Elements/Forms/textarea.module.scss';
 import { addPostCreateAction, updateNewPostTextCreateAction } from '../../../../../redux/reducer/profilePage-reducer';
 import MyPosts from './MyPosts';
-import store from '../../../../../redux/store-redux';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
@@ -14,7 +10,6 @@ let mapStateToProps = (state) => {
 };
 
 let mapDispatchToProps = (dispatch) => {
-    debugger;
      return {
          addPost: () => {
             dispatch(addPostCreateAction())

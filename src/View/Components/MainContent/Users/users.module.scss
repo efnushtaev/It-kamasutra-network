@@ -1,0 +1,15 @@
+.activePage {
+    font-weight: 600;
+}
+
+.pages {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    >span {
+
+        padding: 5px;
+    }
+
+}

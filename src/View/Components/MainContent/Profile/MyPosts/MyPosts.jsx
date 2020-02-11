@@ -5,7 +5,7 @@ import elFormsTextarea from './../../../../Styles/Elements/Forms/textarea.module
 import { addPostCreateAction, updateNewPostTextCreateAction } from '../../../../../redux/reducer/profilePage-reducer';
 
 const MyPosts = (props) => {
-    debugger;
+
     let newPost = React.createRef();
 
     let onPostChange = () => {

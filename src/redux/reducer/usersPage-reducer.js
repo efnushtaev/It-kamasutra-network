@@ -59,7 +59,7 @@ const userPageReducer = (state = initialState, action) => {
     case SET_TOTAL_USER_COUNT: {
         return {
             ...state,
-            totalUsersCount: action.totalUserCount
+            totalUsersCount: action.totalUsersCount
         }
     }
     default:
@@ -83,9 +83,9 @@ export const setCurrentPageCreation = (currentPage) => ({
     type: SET_CURRENT_PAGE,
     currentPage: currentPage
 })
-export const setTotalUserCountAC = (totalUserCount) => ({
+export const setTotalUsersCountAC = (totalUsersCount) => ({
     type: SET_TOTAL_USER_COUNT,
-    totalUserCount: totalUserCount
+    totalUsersCount: totalUsersCount
 })
 
 export default userPageReducer;

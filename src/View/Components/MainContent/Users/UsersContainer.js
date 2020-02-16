@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { followCreation, unfollowCreation, setUsersCreation, setCurrentPageCreation, setTotalUsersCountAC, setToggeleIsFetchingAC } from "../../../../redux/reducer/usersPage-reducer";
+import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setToggeleIsFetching } from "../../../../redux/reducer/usersPage-reducer";
 import * as axios from 'axios';
 import React from 'react';
 import Users from './Users';
@@ -48,29 +48,14 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (user) => {
-            dispatch(followCreation(user))
-        },
-        unfollow: (user) => {
-            dispatch(unfollowCreation(user))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersCreation(users))
-        },
-        setCurrentPage: (currentPage) => {
-            dispatch(setCurrentPageCreation(currentPage))
-        },
-        setTotalUsersCount: (totalUsersCount) => {
-            dispatch(setTotalUsersCountAC(totalUsersCount))
-        },
-        setToggeleIsFetching: (isFetching) => {
-            dispatch(setToggeleIsFetchingAC(isFetching))
-        }
-    }
-}
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent)
+const UsersContainer = connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    setToggeleIsFetching
+})(UsersAPIComponent)
 
 export default UsersContainer;

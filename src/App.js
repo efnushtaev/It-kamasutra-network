@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './View/Components/Header/Header';
 import Sidebar from './View/Components/Sidebar/Sidebar';
-import Profile from './View/Components/MainContent/Profile/Profile';
+import ProfileContainer from './View/Components/MainContent/Profile/ProfileContainer';
 import DialogsContainer from './View/Components/MainContent/Dialogs/DialogsContainer';
 import News from './View/Components/MainContent/News/News';
 import UsersContainer from './View/Components/MainContent/Users/UsersContainer';
@@ -25,7 +25,7 @@ function App(props) {
         <div className="app-wrapper-content">
 
           <Route path="/dialogs" render={() => <DialogsContainer />} />
-          <Route path="/profile" render={() => <Profile />} />
+          <Route path="/profile" render={() => <ProfileContainer />} />
           <Route path="/users" render={() => <UsersContainer />} />
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />

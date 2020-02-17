@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './users.module.scss';
+import {NavLink} from 'react-router-dom';
 
 let Users = (props) => {
     debugger;
@@ -19,7 +20,9 @@ let Users = (props) => {
         {props.users.map(u => <div key={u.id}>
                 <span>
                     <div>
-                        <img src={u.photos.small != null ? u.photos.small : <span>pHOTO</span>} />
+                        <NavLink to={'/profile' + u.id}>
+                            <img src={u.photos.small != null ? u.photos.small : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMcHp3yfT5tduDCfT-Raz6u0N1x4BWBbb2OCwKMN2sqyoEBXM_'} />
+                        </NavLink>
                     </div>
                     <div>
                         {

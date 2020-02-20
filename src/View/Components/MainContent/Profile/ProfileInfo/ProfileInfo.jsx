@@ -4,19 +4,16 @@ import Preloader from '../../../Common/Preloader';
 
 let ProfileInfo = (props) => {
     if(!props.profile){
-
         return (
             <Preloader />
         )
     } 
     return (
-        <div className={classes.profile}>
-            <div className={classes.inner}>
-                <div className={classes.ava}>
-                </div>
-                <div className={classes.description}>
-                    <img src={!props.profile.photos.large ? props.profile.photo.large : 'https://windows10free.ru/uploads/posts/2017-04/1493287748_1487679899_icon-user-640x640.png'  } />
-                </div>
+        <div className={classes.container}>
+            <div className={classes.ava}>
+                <img src={props.profile.photos.large ? props.profile.photos.large : 'https://windows10free.ru/uploads/posts/2017-04/1493287748_1487679899_icon-user-640x640.png'  } />
+            </div>
+            <div className={classes.description}>
             </div>
         </div>
     )

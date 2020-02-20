@@ -20,7 +20,7 @@ let Users = (props) => {
         {props.users.map(u => <div key={u.id}>
                 <span>
                     <div>
-                        <NavLink to={'/profile' + u.id}>
+                        <NavLink to={'/profile/' + u.id}>
                             <img src={u.photos.small != null ? u.photos.small : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMcHp3yfT5tduDCfT-Raz6u0N1x4BWBbb2OCwKMN2sqyoEBXM_'} />
                         </NavLink>
                     </div>

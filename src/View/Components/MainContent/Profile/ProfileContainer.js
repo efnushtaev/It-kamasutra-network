@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
     componentDidMount(){
-        debugger;
+
         // this.props.setToggeleIsFetching(true);
         let userId = this.props.match.params.userId;
         if(!userId){userId = '2'}

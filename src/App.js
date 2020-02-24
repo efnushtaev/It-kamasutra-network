@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './View/Components/Header/Header';
+import HeaderContainer from './View/Components/Header/HeaderContainer';
 import Sidebar from './View/Components/Sidebar/Sidebar';
 import ProfileContainer from './View/Components/MainContent/Profile/ProfileContainer';
 import DialogsContainer from './View/Components/MainContent/Dialogs/DialogsContainer';
@@ -20,7 +20,7 @@ function App(props) {
     <BrowserRouter>
 
       <div className="app-wrapper">
-        <Header />
+        <HeaderContainer />
         <Sidebar />
         <div className="app-wrapper-content">
 

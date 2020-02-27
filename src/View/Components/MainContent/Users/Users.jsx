@@ -30,18 +30,25 @@ let Users = (props) => {
                 <div>
                     {   
                         u.followed ? 
-                        <button onClick={() => {
+                        <button disabled={props.followingProgress.some(e => e !== u.id)} onClick={() => {
+                            debugger;
+                            props.toggleFollowingProgress(true, u.id)
                             usersAPI.unfollowUser(u.id).then(response => {
                                 if (response.data.resultCode === 0) {
                                     props.unfollow(u.id)
                                 }
+                                props.toggleFollowingProgress(false, u.id)
                             })
                         }}>Unfollow</button> : 
-                        <button onClick={() => {
+                        <button disabled={props.followingProgress.some(e => e === u.id)} onClick={() => {
+                            debugger;
+                            props.toggleFollowingProgress(true, u.id)
                             usersAPI.followUser(u.id).then(response => {
                                 if (response.data.resultCode === 0) {
+                                    
                                     props.follow(u.id)
                                 }
+                                props.toggleFollowingProgress(false, u.id)
                             })
                         }}>follow</button>
                     }

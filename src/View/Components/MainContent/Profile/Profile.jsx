@@ -6,8 +6,8 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 let Profile = (props) => {
     return (
         <main className={classes.container}>
-           <ProfileInfo profile={props.profile}/>
-           <MyPostsContainer />
+            <ProfileInfo profile={props.profile} />
+            <MyPostsContainer />
         </main>
     )
 }

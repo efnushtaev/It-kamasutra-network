@@ -10,10 +10,10 @@ class UsersAPIComponent extends React.Component {
         this.props.setToggeleIsFetching(true);
         usersAPI.getUsers(this.props.currentPage, this.props.pagesSize)
             .then(response => {
-            this.props.setToggeleIsFetching(false);
-            this.props.setUsers(response.items);
-            this.props.setTotalUsersCount(response.totalCount);
-        });
+                this.props.setToggeleIsFetching(false);
+                this.props.setUsers(response.items);
+                this.props.setTotalUsersCount(response.totalCount);
+            });
     }
 
     onPageChanged = (pageNumber) => {
@@ -21,22 +21,22 @@ class UsersAPIComponent extends React.Component {
         this.props.setCurrentPage(pageNumber);
         usersAPI.getUsers(pageNumber, this.props.pagesSize)
             .then(response => {
-            this.props.setUsers(response.items);
-            this.props.setToggeleIsFetching(false);
-        });
+                this.props.setUsers(response.items);
+                this.props.setToggeleIsFetching(false);
+            });
     }
 
     render() {
         return <>
-        { this.props.isFetching ? <Preloader /> : null } 
-        <Users totalUsersCount={this.props.totalUsersCount}
-            users={this.props.users}
-            pagesSize={this.props.pagesSize}
-            currentPage={this.props.currentPage}
-            onPageChanged={this.onPageChanged}
-            unfollow={this.props.unfollow}
-            follow={this.props.follow} />
-            </>
+            {this.props.isFetching ? <Preloader /> : null}
+            <Users totalUsersCount={this.props.totalUsersCount}
+                users={this.props.users}
+                pagesSize={this.props.pagesSize}
+                currentPage={this.props.currentPage}
+                onPageChanged={this.onPageChanged}
+                unfollow={this.props.unfollow}
+                follow={this.props.follow} />
+        </>
     }
 }
 
@@ -49,7 +49,6 @@ let mapStateToProps = (state) => {
         isFetching: state.usersPage.isFetching
     }
 }
-
 
 const UsersContainer = connect(mapStateToProps, {
     follow,

@@ -2,7 +2,6 @@ import React from 'react';
 import Post from './Post/Post';
 import classes from './MyPosts.module.css';
 import elFormsTextarea from './../../../../Styles/Elements/Forms/textarea.module.scss';
-import { addPostCreateAction, updateNewPostTextCreateAction } from '../../../../../redux/reducer/profilePage-reducer';
 
 const MyPosts = (props) => {
 
@@ -22,8 +21,10 @@ const MyPosts = (props) => {
     return (
         <div className={classes.container}>
             <div className={elFormsTextarea.container}>
-
-                <textarea placeholder="NEW POST..." ref={newPost} onChange={onPostChange} value={props.newPostText}/>
+                <textarea   placeholder="NEW POST..." 
+                            ref={newPost} 
+                            onChange={onPostChange} 
+                            value={props.newPostText}/>
                 <button onClick={onAddPost}>Add post</button>
             </div>
             <div>

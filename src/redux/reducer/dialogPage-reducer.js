@@ -60,11 +60,11 @@ const dialogPageReducer = (state = initialState, action) => {
     }
 }
 
-export const updateNewMessageCreateAction = (text) => ({
+export const updatingBodyMessage = (text) => ({
     type: UPDATE_NEW_MESSAGE_TEXT,
     text: text
 })
-export const addMessageActionCreate = () => ({
+export const postNewMessage = () => ({
     type: ADD_MESSAGE
 })
 

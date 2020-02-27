@@ -12,16 +12,7 @@ let Sidebar = () => {
                 <NavLink activeClassName={classes.active} to='/dialogs'>Messages</NavLink>
             </div>
             <div className={classes.item}>
-                <NavLink activeClassName={classes.active} to='./news'>News</NavLink>
-            </div>
-            <div className={classes.item}>
-                <NavLink activeClassName={classes.active} to='/music'>Music</NavLink>
-            </div>
-            <div className={classes.item}>
                 <NavLink activeClassName={classes.active} to='/users'>Users</NavLink>
-            </div>
-            <div>
-                <a>Settings</a>
             </div>
         </nav>
     )

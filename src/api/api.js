@@ -17,16 +17,10 @@ export const usersAPI = {
     },
     unfollowUser(usersid = 2) {
         return instance.delete(`follow/${usersid}`, {})
-            // .then(response => {
-            //     return response;
-            // });
     },
     followUser(usersid = 2) {
         debugger;
         return instance.post(`follow/${usersid}`, {})
-            // .then(response => {
-            //     return response.data;
-            // });
     }
 }
 

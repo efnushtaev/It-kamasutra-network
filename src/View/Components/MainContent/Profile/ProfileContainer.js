@@ -7,10 +7,8 @@ import { withRouter } from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
-
-        // this.props.setToggeleIsFetching(true);
         let userId = this.props.match.params.userId;
-        if (!userId) { userId = '2' }
+        if (!userId) { userId = '2' };
         profileAPI.setProfile(userId).then(response => {
             this.props.setUserProfile(response)
         });
@@ -26,6 +24,4 @@ let mapStateToProps = (state) => ({
     profile: state.profilePage.profile
 })
 
-const WithUrlDataProfileContainer = withRouter(ProfileContainer)
-
-export default connect(mapStateToProps, { setUserProfile })(WithUrlDataProfileContainer)
+export default connect(mapStateToProps, { setUserProfile })(withRouter(ProfileContainer))

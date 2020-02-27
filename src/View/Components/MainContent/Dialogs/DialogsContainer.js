@@ -1,9 +1,13 @@
-
-import { updateNewMessageCreateAction, addMessageActionCreate } from '../../../../redux/reducer/dialogPage-reducer';
+import {
+    updatingBodyMessage,
+    postNewMessage
+} from '../../../../redux/reducer/dialogPage-reducer';
 import Dialogs from './Dialogs';
-import { connect } from 'react-redux';
+import {
+    connect
+} from 'react-redux';
 
-    
+
 let mapStateToProps = (state) => {
     return {
         dialogsData: state.dialogPage.dialogsData,
@@ -12,15 +16,9 @@ let mapStateToProps = (state) => {
     }
 };
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        postNewMessage: () => {dispatch(addMessageActionCreate())
-        },
-        updatingBodyMessage: (text) => {dispatch(updateNewMessageCreateAction(text))
-        }
-    }
-}
+const DialogsContainer = connect(mapStateToProps, {
+    postNewMessage,
+    updatingBodyMessage
+})(Dialogs);
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-
-export default DialogsContainer; 
+export default DialogsContainer;

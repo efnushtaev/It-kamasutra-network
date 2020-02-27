@@ -1,7 +1,4 @@
 import React from 'react';
-// import classes from './../Dialogs.module.css';
-import { NavLink } from 'react-router-dom';
-
 import dialog from './../dialogs.module.scss';
 
 const Message = (props) => {

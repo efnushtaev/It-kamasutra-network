@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { setAuthUsersData } from './../../../redux/reducer/auth-reducer';
 import { headerAPI } from './../../../api/api';
 
-
 class HeaderContainer extends React.Component {
     componentDidMount(){
         headerAPI.login().then(response => {
@@ -12,7 +11,6 @@ class HeaderContainer extends React.Component {
                 let {id, email, login} = response.data;
                 this.props.setAuthUsersData(id, email, login);
             }
-         
         });
     }
     render() {

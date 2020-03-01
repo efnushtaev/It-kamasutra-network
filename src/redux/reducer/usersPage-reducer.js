@@ -1,3 +1,7 @@
+import {
+    usersAPI
+} from "../../api/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
@@ -11,7 +15,7 @@ let initialState = {
     users: [],
     pagesSize: 50,
     totalUsersCount: 0,
-    currentPage: 1, 
+    currentPage: 1,
     isFetching: true,
     followingProgress: []
 
@@ -23,6 +27,7 @@ const userPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.map((u) => {
+                    debugger;
                     if (u.id === action.id) {
                         return {
                             ...u,
@@ -33,25 +38,25 @@ const userPageReducer = (state = initialState, action) => {
                 })
             }
         };
-    case UNFOLLOW: {
-        return {
-            ...state,
-            users: state.users.map(u => {
-                if (u.id === action.id) {
-                    return {
-                        ...u,
-                        followed: false
-                    };
-                }
-                return u
-            })
-        }
-    };
+        case UNFOLLOW: {
+            return {
+                ...state,
+                users: state.users.map(u => {
+                    if (u.id === action.id) {
+                        return {
+                            ...u,
+                            followed: false
+                        };
+                    }
+                    return u
+                })
+            }
+        };
     case SET_USERS: {
         return {
             ...state,
-            users:[...action.users]
-            
+            users: [...action.users]
+
         }
     };
     case SET_CURRENT_PAGE: {
@@ -75,9 +80,9 @@ const userPageReducer = (state = initialState, action) => {
     case TOOGLE_IS_FOLLOWING_PROGRESS: {
         return {
             ...state,
-            followingProgress: action.isFetching 
-                                ? [...state.followingProgress, action.userid] 
-                                : [...state.followingProgress.filter(e => e != action.userid)]
+            followingProgress: action.isFetching ?
+                [...state.followingProgress, action.userid] :
+                [...state.followingProgress.filter(e => e != action.userid)]
 
         }
     }
@@ -86,11 +91,11 @@ const userPageReducer = (state = initialState, action) => {
     }
 }
 
-export const follow = (user) => ({
+export const followSuccess = (user) => ({
     type: FOLLOW,
     id: user
 });
-export const unfollow = (user) => ({
+export const unfollowSuccess = (user) => ({
     type: UNFOLLOW,
     id: user
 });
@@ -111,9 +116,45 @@ export const setToggeleIsFetching = (isFetching) => ({
     isFetching: isFetching
 })
 export const toggleFollowingProgress = (isFetching, userid) => ({
+    
     type: TOOGLE_IS_FOLLOWING_PROGRESS,
     isFetching,
     userid
 })
 
+export const getUsersThunk = (currentPage, pagesSize) => {
+    return (dispatch) => {
+        dispatch(setToggeleIsFetching(true));
+        usersAPI.getUsers(currentPage, pagesSize)
+            .then(response => {
+                dispatch(setToggeleIsFetching(false));
+                dispatch(setUsers(response.items));
+                dispatch(setTotalUsersCount(response.totalCount));
+            });
+    }
+}
+
+export const follow = (userId) => {
+    return (dispatch) => {
+        debugger
+        dispatch(toggleFollowingProgress(true, userId))
+        usersAPI.followUser(userId).then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(followSuccess(userId))
+            }
+            dispatch(toggleFollowingProgress(false, userId))
+        })
+    }
+}
+export const unfollow = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleFollowingProgress(true, userId))
+        usersAPI.unfollowUser(userId).then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(unfollowSuccess(userId))
+            }
+            dispatch(toggleFollowingProgress(false, userId))
+        })
+    }
+}
 export default userPageReducer;

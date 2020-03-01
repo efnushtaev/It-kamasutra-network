@@ -19,7 +19,6 @@ export const usersAPI = {
         return instance.delete(`follow/${usersid}`, {})
     },
     followUser(usersid = 2) {
-        debugger;
         return instance.post(`follow/${usersid}`, {})
     }
 }

@@ -138,7 +138,8 @@ export const follow = (userId) => {
     return (dispatch) => {
         debugger
         dispatch(toggleFollowingProgress(true, userId))
-        usersAPI.followUser(userId).then(response => {
+        usersAPI.followUser(userId)
+        .then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(followSuccess(userId))
             }

@@ -6,7 +6,8 @@ const SET_USER_DATA = 'SET_USER_DATA';
 let initialState = {
     userId: null,
     email: null,
-    login: null
+    login: null,
+    isAuth: false
 }
 
 const authReducer = (state = initialState, action) => {
@@ -15,7 +16,8 @@ const authReducer = (state = initialState, action) => {
         case SET_USER_DATA:
             return {
                 ...state,
-                ...action.data
+                ...action.data,
+                isAuth: true
             }
 
             default:
@@ -32,7 +34,7 @@ export const setAuthUsersData = (userId, email, login) => ({
         login
     }
 })
-export const setAuthUsersDataThunk = () => {
+export const getAuthUsersData = () => {
     return (dispatch) => {
         headerAPI.login().then(response => {
             if(response.resultCode === 0) {

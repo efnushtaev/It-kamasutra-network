@@ -1,11 +1,6 @@
 import profilePageReducer from './reducer/profilePage-reducer';
 import dialogPageReducer from './reducer/dialogPage-reducer';
 
-const ADD_POST = 'ADD_POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
-const ADD_MESSAGE = 'ADD_MESSAGE'; 
-
 let store = {
     _state: {
         profilePage: {
@@ -85,26 +80,21 @@ let store = {
             ]
         }
     },
-    _callObserver() {},
 
     getState() {
         return this._state;
     },
-    subscribe(observer) {
-        this._callObserver = observer;
-        console.log('observer')
-    },
+    // subscribe(observer) {
+    //     this._callObserver = observer;
+    //     console.log('observer')
+    // },
 
-    dispatch(action) {
-        this._state.profilePage = profilePageReducer(action, this._state.profilePage);
-        this._state.dialogPage = dialogPageReducer(action, this._state.dialogPage);
+    // dispatch(action) {
+    //     this._state.profilePage = profilePageReducer(action, this._state.profilePage);
+    //     this._state.dialogPage = dialogPageReducer(action, this._state.dialogPage);
 
-        this._callObserver(this._state);
-    }
+    //     this._callObserver(this._state);
+    // }
 }
 
 export default store;
-
-
-
-window.store = store;

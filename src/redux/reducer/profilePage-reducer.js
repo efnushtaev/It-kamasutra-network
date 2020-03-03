@@ -1,39 +1,45 @@
-import { profileAPI } from "../../api/api";
+import {
+    profileAPI
+} from "../../api/api";
 
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
-const SET_USER_PROFILE = 'SET_USER_PROFILE'; 
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
     postsData: [{
-        id: 1,
-        message: 'Hi! this is a first post',
-        likesCount: '23'
-    },
-    {
-        id: 2,
-        message: 'And this is a second one',
-        likesCount: '11'
-    }
-],
-newPostText: '',
-profile: null
+            id: 1,
+            message: 'Hi! this is a first post',
+            likesCount: '23'
+        },
+        {
+            id: 2,
+            message: 'And this is a second one',
+            likesCount: '11'
+        }
+    ],
+    newPostText: '',
+    profile: null
 }
 
 const profilePageReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case ADD_POST:{
+        case ADD_POST: {
             let body = state.newPostText;
             return {
-                postsData:[...state.postsData, {id:3, message:body, likesCount:0}],
+                postsData: [...state.postsData, {
+                    id: 3,
+                    message: body,
+                    likesCount: 0
+                }],
                 newPostText: ''
             };
         }
         case UPDATE_NEW_POST_TEXT: {
             return {
                 ...state,
-                newPostText:action.newText
+                newPostText: action.newText
             };
         }
         case SET_USER_PROFILE: {

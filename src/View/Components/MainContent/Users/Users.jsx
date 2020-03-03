@@ -21,38 +21,19 @@ let Users = (props) => {
             <span>
                 <div>
                     <NavLink to={'/profile/' + u.id}>
-                        <img    src={u.photos.small != null ? 
-                                u.photos.small : 
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMcHp3yfT5tduDCfT-Raz6u0N1x4BWBbb2OCwKMN2sqyoEBXM_'} />
+                        <img src={u.photos.small != null
+                        ? u.photos.small 
+                        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMcHp3yfT5tduDCfT-Raz6u0N1x4BWBbb2OCwKMN2sqyoEBXM_'} />
                     </NavLink>
                 </div>
-                <div>
-                    {   
-                        u.followed ? 
-                        <button disabled={props.followingProgress.some(e => e === u.id)} onClick={() => {
-                            
-                         props.unfollow(u.id)
-                            // props.toggleFollowingProgress(true, u.id)
-                            // usersAPI.unfollowUser(u.id).then(response => {
-                            //     if (response.data.resultCode === 0) {
-                            //         props.unfollow(u.id)
-                            //     }
-                            //     props.toggleFollowingProgress(false, u.id)
-                            // })
-                        }}>Unfollow</button> : 
-                        <button disabled={props.followingProgress.some(e => e === u.id)} onClick={() => {
-                            props.follow(u.id)
-                            // props.follow(u.id)
-                            // props.toggleFollowingProgress(true, u.id)
-                            // usersAPI.followUser(u.id).then(response => {
-                            //     if (response.data.resultCode === 0) {
-                                    
-                            //         props.follow(u.id)
-                            //     }
-                            //     props.toggleFollowingProgress(false, u.id)
-                            // })
-                        }}>follow</button>
-                    }
+                <div>{   
+                    u.followed 
+                    ? <button disabled={props.followingProgress.some(e => e === u.id)} onClick={() => { 
+                    props.unfollow(u.id)
+                    }}>Unfollow</button>
+                    : <button disabled={props.followingProgress.some(e => e === u.id)} onClick={() => {
+                    props.follow(u.id)
+                    }}>follow</button>}
                 </div>
             </span>
             <span>

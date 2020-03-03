@@ -9,9 +9,6 @@ class ProfileContainer extends React.Component {
         let userId = this.props.match.params.userId;
         if (!userId) { userId = '2' };
         this.props.getProfileThunk(userId);
-        // profileAPI.setProfile(userId).then(response => {
-        //     this.props.setUserProfile(response)
-        // });
     }
     render() {
         return (

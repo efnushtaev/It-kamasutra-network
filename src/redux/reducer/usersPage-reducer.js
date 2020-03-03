@@ -27,7 +27,6 @@ const userPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.map((u) => {
-                    debugger;
                     if (u.id === action.id) {
                         return {
                             ...u,
@@ -116,7 +115,6 @@ export const setToggeleIsFetching = (isFetching) => ({
     isFetching: isFetching
 })
 export const toggleFollowingProgress = (isFetching, userid) => ({
-    
     type: TOOGLE_IS_FOLLOWING_PROGRESS,
     isFetching,
     userid
@@ -126,17 +124,16 @@ export const getUsersThunk = (currentPage, pagesSize) => {
     return (dispatch) => {
         dispatch(setToggeleIsFetching(true));
         usersAPI.getUsers(currentPage, pagesSize)
-            .then(response => {
-                dispatch(setToggeleIsFetching(false));
-                dispatch(setUsers(response.items));
-                dispatch(setTotalUsersCount(response.totalCount));
-            });
+        .then(response => {
+            dispatch(setToggeleIsFetching(false));
+            dispatch(setUsers(response.items));
+            dispatch(setTotalUsersCount(response.totalCount));
+        });
     }
 }
 
 export const follow = (userId) => {
     return (dispatch) => {
-        debugger
         dispatch(toggleFollowingProgress(true, userId))
         usersAPI.followUser(userId)
         .then(response => {
@@ -147,6 +144,7 @@ export const follow = (userId) => {
         })
     }
 }
+
 export const unfollow = (userId) => {
     return (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId))

@@ -7,7 +7,6 @@ import {
     connect
 } from 'react-redux';
 
-
 let mapStateToProps = (state) => {
     return {
         dialogsData: state.dialogPage.dialogsData,
@@ -16,9 +15,7 @@ let mapStateToProps = (state) => {
     }
 };
 
-const DialogsContainer = connect(mapStateToProps, {
+export default connect(mapStateToProps, {
     postNewMessage,
     updatingBodyMessage
-})(Dialogs);
-
-export default DialogsContainer;
+})(Dialogs);;

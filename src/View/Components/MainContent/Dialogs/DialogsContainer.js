@@ -6,6 +6,7 @@ import Dialogs from './Dialogs';
 import {
     connect
 } from 'react-redux';
+import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
 
 let mapStateToProps = (state) => {
     return {
@@ -16,7 +17,9 @@ let mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {
+
+
+export default WithAuthRedirect(connect(mapStateToProps, {
     postNewMessage,
     updatingBodyMessage
-})(Dialogs);
+})(Dialogs));

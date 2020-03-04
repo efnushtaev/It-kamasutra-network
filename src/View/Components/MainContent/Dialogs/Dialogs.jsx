@@ -3,8 +3,10 @@ import classes from './dialogs.module.scss';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import elFormsTextarea from './../../../Styles/Elements/Forms/textarea.module.scss'
+import { Redirect } from 'react-router-dom';
 
 const Dialogs = (props) => {
+    if (!props.isAuth) return <Redirect to={'/login'}/>;
 
     let newText = React.createRef()
 
@@ -22,6 +24,7 @@ const Dialogs = (props) => {
     let messageElements =
         props.messagesData.map(m => <Message message={m.message} come={m.come} />)
 
+        
     return (
         <div>
             <div className={classes.dialogs}>

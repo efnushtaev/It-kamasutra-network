@@ -3,6 +3,7 @@ import HeaderContainer from './View/Components/Header/HeaderContainer';
 import Sidebar from './View/Components/Sidebar/Sidebar';
 import ProfileContainer from './View/Components/MainContent/Profile/ProfileContainer';
 import DialogsContainer from './View/Components/MainContent/Dialogs/DialogsContainer';
+import Login from './View/Components/MainContent/Login/Login';
 import UsersContainer from './View/Components/MainContent/Users/UsersContainer';
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/dialogs" render={() => <DialogsContainer />} />
           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
           <Route path="/users" render={() => <UsersContainer />} />
+          <Route path="/login" render={() => <Login />} />
         </div>
       </div>
     </BrowserRouter>

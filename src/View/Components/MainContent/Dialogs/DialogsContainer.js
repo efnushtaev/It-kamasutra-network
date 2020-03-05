@@ -7,6 +7,7 @@ import {
     connect
 } from 'react-redux';
 import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
+import { compose } from 'redux';
 
 let mapStateToProps = (state) => {
     return {
@@ -19,7 +20,10 @@ let mapStateToProps = (state) => {
 
 
 
-export default WithAuthRedirect(connect(mapStateToProps, {
-    postNewMessage,
-    updatingBodyMessage
-})(Dialogs));
+export default compose(
+    connect(mapStateToProps, {
+        postNewMessage,
+        updatingBodyMessage
+    }),
+    WithAuthRedirect
+)(Dialogs);

@@ -2,18 +2,24 @@ import React from 'react';
 import Post from './Post/Post';
 import classes from './MyPosts.module.css';
 import elFormsTextarea from './../../../../Styles/Elements/Forms/textarea.module.scss';
+import { reduxForm, Field } from 'redux-form'
+
+const AddNewPostForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <Field  component="textarea"
+                    placeholder="NEW POST..."
+                    name="newPostBody" />
+            <button>Add post</button>
+        </form>
+    )
+}
+ const AddNewPostReduxForm = reduxForm({form:'postMessage'})(AddNewPostForm)
 
 const MyPosts = (props) => {
 
-    let newPost = React.createRef();
-
-    let onPostChange = () => {
-        let text = newPost.current.value;
-        props.onPostChange(text)
-    }
-
-    let onAddPost = () => {
-        props.addPost();
+    let onAddPost = (values) => {
+        props.addPost(values.newPostBody);
     }
 
     let postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
@@ -21,11 +27,7 @@ const MyPosts = (props) => {
     return (
         <div className={classes.container}>
             <div className={elFormsTextarea.container}>
-                <textarea   placeholder="NEW POST..." 
-                            ref={newPost} 
-                            onChange={onPostChange} 
-                            value={props.newPostText}/>
-                <button onClick={onAddPost}>Add post</button>
+                <AddNewPostReduxForm onSubmit={onAddPost}/>
             </div>
             <div>
                 {postElements}

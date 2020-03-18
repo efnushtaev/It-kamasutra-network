@@ -42,12 +42,6 @@ let initialState = {
 
 const dialogPageReducer = (state = initialState, action) => {
     switch (action.type) {
-        // case UPDATE_NEW_MESSAGE_TEXT: {
-        //     return {
-        //         ...state,
-        //         newMessageText:action.text
-        //     };
-        // }
         case ADD_MESSAGE: {
             return {
                 ...state,

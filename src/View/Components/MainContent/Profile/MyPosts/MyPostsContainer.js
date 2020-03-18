@@ -1,4 +1,4 @@
-import { addPost, onPostChange } from '../../../../../redux/reducer/profilePage-reducer';
+import { addPost } from '../../../../../redux/reducer/profilePage-reducer';
 import MyPosts from './MyPosts';
 import { connect } from 'react-redux';
 
@@ -9,4 +9,4 @@ let mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, { addPost, onPostChange } )(MyPosts)
+export default connect(mapStateToProps, { addPost } )(MyPosts)

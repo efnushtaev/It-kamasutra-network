@@ -4,18 +4,25 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import elFormsTextarea from './../../../Styles/Elements/Forms/textarea.module.scss'
 import { Redirect } from 'react-router-dom';
+import { reduxForm, Field } from 'redux-form'
 
+const DialogsForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <Field  component="textarea"
+                    name="newDialogMessage"
+                    placeholder="NEW MESSAGE..." />
+            <button>Add message</button>
+        </form>
+    )
+}
+
+const DialogReduxForm = reduxForm({ form: 'dialogMessage' })(DialogsForm)
 const Dialogs = (props) => {
-    if (!props.isAuth) return <Redirect to={'/login'}/>;
+    if (!props.isAuth) return <Redirect to={'/login'} />;
 
-    let newText = React.createRef()
-
-    let updateBodyPost = () => {
-        let text = newText.current.value;
-        props.updatingBodyMessage(text);
-    }
-    let addPost = () => {
-        props.postNewMessage()
+    let addNewDialogMessage = (values) => {
+        props.postNewMessage(values.newDialogMessage)
     }
 
     let dialogElements =
@@ -24,7 +31,7 @@ const Dialogs = (props) => {
     let messageElements =
         props.messagesData.map(m => <Message message={m.message} come={m.come} />)
 
-        
+
     return (
         <div>
             <div className={classes.dialogs}>
@@ -36,15 +43,12 @@ const Dialogs = (props) => {
                 </div>
             </div>
             <div className={elFormsTextarea.container}>
-                <textarea onChange={updateBodyPost}
-                    value={props.newMessageText}
-                    placeholder="NEW MESSAGE..."
-                    ref={newText}>
-                </textarea>
-                <button onClick={addPost}>Add message</button>
+                <DialogReduxForm onSubmit={addNewDialogMessage} />
             </div>
         </div>
     )
 }
 
-export default Dialogs
+
+
+export default Dialogs;

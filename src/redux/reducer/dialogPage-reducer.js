@@ -42,16 +42,16 @@ let initialState = {
 
 const dialogPageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_TEXT: {
-            return {
-                ...state,
-                newMessageText:action.text
-            };
-        }
+        // case UPDATE_NEW_MESSAGE_TEXT: {
+        //     return {
+        //         ...state,
+        //         newMessageText:action.text
+        //     };
+        // }
         case ADD_MESSAGE: {
             return {
                 ...state,
-                messagesData:[...state.messagesData, {id:6, message: state.newMessageText }],
+                messagesData:[...state.messagesData, {id:6, message: action.text }],
                 newMessageText: ''
             };
         }
@@ -60,12 +60,13 @@ const dialogPageReducer = (state = initialState, action) => {
     }
 }
 
-export const updatingBodyMessage = (text) => ({
-    type: UPDATE_NEW_MESSAGE_TEXT,
+// export const updatingBodyMessage = (text) => ({
+//     type: UPDATE_NEW_MESSAGE_TEXT,
+//     text: text
+// })
+export const postNewMessage = (text) => ({
+    type: ADD_MESSAGE,
     text: text
-})
-export const postNewMessage = () => ({
-    type: ADD_MESSAGE
 })
 
 

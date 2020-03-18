@@ -1,5 +1,4 @@
 import {
-    updatingBodyMessage,
     postNewMessage
 } from '../../../../redux/reducer/dialogPage-reducer';
 import Dialogs from './Dialogs';
@@ -22,8 +21,7 @@ let mapStateToProps = (state) => {
 
 export default compose(
     connect(mapStateToProps, {
-        postNewMessage,
-        updatingBodyMessage
+        postNewMessage
     }),
     WithAuthRedirect
 )(Dialogs);

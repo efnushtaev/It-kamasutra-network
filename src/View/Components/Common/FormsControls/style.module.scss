@@ -1,0 +1,15 @@
+.formControl.error {
+    span{
+        visibility: visible;
+    }
+    input,
+    textarea {
+       border: 1px solid red
+
+    
+}
+}
+
+.formControl span {
+    visibility: hidden;
+}

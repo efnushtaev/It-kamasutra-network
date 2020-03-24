@@ -1,4 +1,5 @@
 import { headerAPI } from "../../api/api";
+import {stopSubmit} from 'redux-form'
 
 const SET_USER_DATA = 'SET_USER_DATA';
 // const UNFOLLOW = 'UNFOLLOW';
@@ -46,9 +47,14 @@ export const getAuthUsersData = () => {
 }
 export const login = (email, password, rememberMe) => {
     return (dispatch) => {
+
+        
         headerAPI.login(email, password, rememberMe).then(response => {
             if(response.resultCode === 0) {
                 dispatch(getAuthUsersData());
+            } else {
+                let message = response.messages.length > 0 ? response.messages : 'Other error'
+                dispatch(stopSubmit('login', {_error: message}))
             }
         });
     }

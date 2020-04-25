@@ -3,6 +3,7 @@ import { follow, unfollow, setCurrentPage, getUsersThunk } from "../../../../red
 import React from 'react';
 import Users from './Users';
 import Preloader from "../../Common/Preloader";
+import { getUsers, getPagesSize, getTotalUsersCount, getCurrentPage, getIsFetching, getFollowingProgress } from "../../../../redux/reducer/users-selectors";
 
 class UsersAPIComponent extends React.Component {
     componentDidMount() {
@@ -30,12 +31,12 @@ class UsersAPIComponent extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users,
-        pagesSize: state.usersPage.pagesSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingProgress: state.usersPage.followingProgress
+        users: getUsers(state),
+        pagesSize: getPagesSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingProgress: getFollowingProgress(state)
     }
 }
 

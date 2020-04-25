@@ -35,15 +35,13 @@ export const setAuthUsersData = (userId, email, login, isAuth) => ({
         isAuth
     }
 })
-export const getAuthUsersData = () => {
-    return (dispatch) => {
-        headerAPI.me().then(response => {
+export const getAuthUsersData = () => (dispatch) => {
+        return headerAPI.me().then(response => {
             if(response.resultCode === 0) {
                 let {id, email, login} = response.data;
                 dispatch(setAuthUsersData(id, email, login, true));
             }
         });
-    }
 }
 export const login = (email, password, rememberMe) => {
     return (dispatch) => {

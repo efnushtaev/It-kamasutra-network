@@ -43,19 +43,18 @@ export const getAuthUsersData = () => (dispatch) => {
             }
         });
 }
-export const login = (email, password, rememberMe) => {
-    return (dispatch) => {
+export const login = (email, password, rememberMe) => (dispatch) => {
 
         
-        headerAPI.login(email, password, rememberMe).then(response => {
-            if(response.resultCode === 0) {
-                dispatch(getAuthUsersData());
-            } else {
-                let message = response.messages.length > 0 ? response.messages : 'Other error'
-                dispatch(stopSubmit('login', {_error: message}))
-            }
-        });
-    }
+        headerAPI.login(email, password, rememberMe)
+            .then(response => {
+                if(response.resultCode === 0) {
+                    dispatch(getAuthUsersData());
+                } else {
+                    let message = response.messages.length > 0 ? response.messages : 'Other error'
+                    dispatch(stopSubmit('login', {_error: message}))
+                }
+            });
 }
 export const logout = () => {
     debugger;

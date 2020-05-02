@@ -19,24 +19,27 @@ const AddNewPostForm = (props) => {
 }
  const AddNewPostReduxForm = reduxForm({form:'postMessage'})(AddNewPostForm)
 
-const MyPosts = (props) => {
-
-    let onAddPost = (values) => {
-        props.addPost(values.newPostBody);
+const MyPosts = React.memo(
+     props => {
+    
+        let onAddPost = (values) => {
+            props.addPost(values.newPostBody);
+        }
+    
+        let postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+    
+        return (
+            <div className={classes.container}>
+                <div className={elFormsTextarea.container}>
+                    <AddNewPostReduxForm onSubmit={onAddPost}/>
+                </div>
+                <div>
+                    {postElements}
+                </div>
+            </div>
+        )
     }
-
-    let postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
-
-    return (
-        <div className={classes.container}>
-            <div className={elFormsTextarea.container}>
-                <AddNewPostReduxForm onSubmit={onAddPost}/>
-            </div>
-            <div>
-                {postElements}
-            </div>
-        </div>
     )
-}
+    
 
 export default MyPosts;

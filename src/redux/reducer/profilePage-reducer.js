@@ -50,6 +50,12 @@ const profilePageReducer = (state = initialState, action) => {
                 status:action.status
             }
         }
+        case "DELETED_POST":  {
+            return {
+                ...state,
+                postsData: [...state.postsData.filter(item => item.id != action.postId)]
+            }
+        }
         default:
             return state;
     }
@@ -58,6 +64,10 @@ const profilePageReducer = (state = initialState, action) => {
 export const addPost = (text) => ({
     type: ADD_POST,
     text
+});
+export const deletedPost = (postId) => ({
+    type: "DELETED_POST",
+    postId
 });
 
 export const setUserProfile = (profile) => ({

@@ -8,7 +8,7 @@ import UsersContainer from './View/Components/MainContent/Users/UsersContainer';
 import { Route, withRouter } from 'react-router-dom';
 import { initializeApp } from './redux/reducer/app-reducer';
 import './View/Styles/fonts.css';
-import 'logo.svg';
+// import 'logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -40,6 +40,6 @@ const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 export default  compose(
-                  withRouter,
-                  connect(mapStateToProps,{initializeApp})
+  connect(mapStateToProps,{initializeApp}),
+  withRouter
                 )(App);

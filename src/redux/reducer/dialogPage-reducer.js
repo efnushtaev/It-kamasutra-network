@@ -1,4 +1,3 @@
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
 const ADD_MESSAGE = 'ADD_MESSAGE';
 
 let initialState = {
@@ -54,10 +53,6 @@ const dialogPageReducer = (state = initialState, action) => {
     }
 }
 
-// export const updatingBodyMessage = (text) => ({
-//     type: UPDATE_NEW_MESSAGE_TEXT,
-//     text: text
-// })
 export const postNewMessage = (text) => ({
     type: ADD_MESSAGE,
     text: text

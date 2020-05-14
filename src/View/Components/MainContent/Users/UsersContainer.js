@@ -7,17 +7,19 @@ import { getUsers, getPagesSize, getTotalUsersCount, getCurrentPage, getIsFetchi
 
 class UsersAPIComponent extends React.Component {
     componentDidMount() {
-       this.props.getUsersThunk(this.props.currentPage, this.props.pagesSize)
+        let {currentPage, pagesSize} = this.props;
+        this.props.getUsersThunk(currentPage, pagesSize)
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.getUsersThunk(pageNumber, this.props.pagesSize)
+        let {pagesSize} = this.props
+        this.props.getUsersThunk(pageNumber, pagesSize)
     }
 
     render() {
         return <>
             {this.props.isFetching ? <Preloader /> : null}
-            <Users totalUsersCount={this.props.totalUsersCount}
+            <Users totalItemsCount={this.props.totalItemsCount}
                 users={this.props.users}
                 pagesSize={this.props.pagesSize}
                 currentPage={this.props.currentPage}
@@ -33,7 +35,7 @@ let mapStateToProps = (state) => {
     return {
         users: getUsers(state),
         pagesSize: getPagesSize(state),
-        totalUsersCount: getTotalUsersCount(state),
+        totalItemsCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
         followingProgress: getFollowingProgress(state)

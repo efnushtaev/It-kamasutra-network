@@ -4,23 +4,18 @@ import { reduxForm, Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 import { login } from './../../../../redux/reducer/auth-reducer';
 import style from './../../Common/FormsControls/style.module.scss';
-import {Input} from "./../../Common/FormsControls";
+import {Input, CreateField} from "./../../Common/FormsControls";
+import { required } from '../../../../utils/validations';
 
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field name={'email'} placeholder={'Email'} component={Input}/>
-            </div>
-            <div>
-                <Field  name={'password'}  placeholder={'Password'} component={Input}/>
-            </div>
-            <div>
-                <Field  name={'rememberMe'} type={'checkbox'} component={Input}/> <span>remember me</span>
-            </div>
-            {props.error && <div className={style.formError}>
-                {props.error}
+        <form onSubmit={handleSubmit}>
+            {CreateField('email', 'Email', Input, [required])}
+            {CreateField('password', 'Password', Input, [required])}
+            {CreateField('rememberMe', null, Input, [required], {type: "checkbox"}, 'remember me')}
+            {error && <div className={style.formError}>
+                {error}
             </div>}
             <div>
                 <button>Login</button>

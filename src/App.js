@@ -8,7 +8,6 @@ import UsersContainer from './View/Components/MainContent/Users/UsersContainer';
 import { Route, withRouter } from 'react-router-dom';
 import { initializeApp } from './redux/reducer/app-reducer';
 import './View/Styles/fonts.css';
-// import 'logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -28,7 +27,7 @@ render() {
               <HeaderContainer />
               <Sidebar />
               <div className="app-wrapper-content">
-                <Route path="/dialogs" render={() => <DialogsContainer />} />
+              <Route path="/dialogs" render={() => <DialogsContainer />} />
                 <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
                 <Route path="/users" render={() => <UsersContainer />} />
                 <Route path="/login" render={() => <Login />} />

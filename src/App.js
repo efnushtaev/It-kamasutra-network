@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import HeaderContainer from './View/Components/Header/HeaderContainer';
 import Sidebar from './View/Components/Sidebar/Sidebar';
-import ProfileContainer from './View/Components/MainContent/Profile/ProfileContainer';
-import DialogsContainer from './View/Components/MainContent/Dialogs/DialogsContainer';
+// import ProfileContainer from './View/Components/MainContent/Profile/ProfileContainer';
+// import DialogsContainer from './View/Components/MainContent/Dialogs/DialogsContainer';
 import Login from './View/Components/MainContent/Login/Login';
-import UsersContainer from './View/Components/MainContent/Users/UsersContainer';
+// import UsersContainer from './View/Components/MainContent/Users/UsersContainer';
 import { Route, withRouter } from 'react-router-dom';
 import { initializeApp } from './redux/reducer/app-reducer';
 import './View/Styles/fonts.css';
@@ -12,6 +12,10 @@ import './App.css';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './View/Components/Common/Preloader';
+
+const DialogsContainer = React.lazy( () => import('./View/Components/MainContent/Dialogs/DialogsContainer') )
+const ProfileContainer = React.lazy( () => import('./View/Components/MainContent/Profile/ProfileContainer') )
+const UsersContainer = React.lazy( () => import('./View/Components/MainContent/Users/UsersContainer') )
 
 class App extends React.Component {
 
@@ -24,6 +28,8 @@ render() {
     return <Preloader/>
   }
     return  <div className="app-wrapper">
+      <React.Suspense fallback={<Preloader/>}>
+
               <HeaderContainer />
               <Sidebar />
               <div className="app-wrapper-content">
@@ -32,6 +38,7 @@ render() {
                 <Route path="/users" render={() => <UsersContainer />} />
                 <Route path="/login" render={() => <Login />} />
               </div>
+      </React.Suspense>
             </div>
   }
 }

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/it-kamasutra-network/precache-manifest.08df2c7ac5dc877489696d53f19d173a.js"
+  "/it-kamasutra-network/precache-manifest.2e3403b4988cdb95a4f9435c31f8bbe9.js"
 );
 
 self.addEventListener('message', (event) => {

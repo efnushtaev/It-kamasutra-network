@@ -5,7 +5,7 @@ import User from './User'
 let Users = ({currentPage, onPageChanged, totalItemsCount, pagesSize, ...props}) => {
 
     let pages = [];
-    let pagesCount = Math.ceil(props.totalItemsCount / props.pagesSize);
+    let pagesCount = Math.ceil(totalItemsCount / pagesSize);
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }

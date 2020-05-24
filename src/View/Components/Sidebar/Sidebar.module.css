@@ -7,7 +7,7 @@
 
 .navigation {
   grid-area: n;
-  background-color: #C1D1F7;
+  background: linear-gradient(180deg, #C1D1F7 0%, #ebebeb 100%);
   padding-left: 60px;
   padding-top: 24px;
 }

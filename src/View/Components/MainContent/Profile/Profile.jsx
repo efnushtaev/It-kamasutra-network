@@ -3,7 +3,7 @@ import classes from './Profile.module.css';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-let Profile = ({isOwner,profile,status,updateStatus,...props}) => {
+let Profile = ({isOwner,profile,status,updateStatus,saveProfile,...props}) => {
     return (
         <main className={classes.container}>
             <ProfileInfo    
@@ -11,6 +11,7 @@ let Profile = ({isOwner,profile,status,updateStatus,...props}) => {
                 profile={profile} 
                 status={status} 
                 updateStatus={updateStatus}
+                saveProfile={saveProfile}
                 {...props} />
             <MyPostsContainer />
         </main>

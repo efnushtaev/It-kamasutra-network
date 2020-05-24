@@ -25,6 +25,7 @@ const LoginForm = ({handleSubmit, error}) => {
 }
 
 const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
+
 const Login = (props) => {
     const onSubmit= (formData) => {
         props.login(formData.email, formData.password, formData.rememberMe) }
@@ -40,7 +41,9 @@ const Login = (props) => {
         </div>
     )
 }
+
 const mapStateToProps = (state) => ({
     isAuth:state.auth.isAuth
 })
+
 export default connect(mapStateToProps, {login})(Login)

@@ -5,7 +5,6 @@ import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import ProfileInfoDescriptionForm from './ProfileInfoDescriptionForm';
 
 let ProfileInfo = ({profile, status, updateStatus, isOwner, saveProfile, ...props}) => {
-    debugger
     const [editMode, setEditMode] = useState(false)
 
     if(!profile){
@@ -14,17 +13,48 @@ let ProfileInfo = ({profile, status, updateStatus, isOwner, saveProfile, ...prop
         )
     } 
     const onSubmit = (formData) => {
-        debugger
         saveProfile(formData).then(() => {
             setEditMode(false)
         })
         // 
     }
 
+    
     const onMainPhotoSelected = (e) => {
         e.target.files.length && props.savePhoto(e.target.files[0])
     }
 
+    const ProfileInfoDescription = ({profile, isOwner, onEditMode}) => {
+        return (
+            <div className={classes.description}>
+            {isOwner && <button onClick={onEditMode}>edit</button>}
+                <div>
+                    <b>Full name</b>: {profile.fullName}
+                </div>
+                <div>
+                    <b>Looking for a job</b>: {profile.lookingForAJob ? 'Yes' : 'No'}
+                </div>
+                <div>
+                    <b>Mt professional skills</b>: {profile.lookingForAJobDescription}
+                </div>
+                <div>
+                    <b>About me</b>: {profile.aboutMe}
+                </div>
+                <div>
+                    <b>Contacts</b>: {Object.keys(profile.contacts).map(key => <Contacts key={key} contactTitle={key} contactValue={profile.contacts[key]}/>)}
+                </div>
+            </div>
+        )
+    }
+    
+        const Contacts = ({contactTitle, contactValue}) => {
+            return (
+                <div>
+                    <b>{contactTitle}:</b>{contactValue}
+                </div>
+            )
+        }
+        
     return (
         <div className={classes.container}>
             <div className={classes.ava}>
@@ -44,37 +74,5 @@ let ProfileInfo = ({profile, status, updateStatus, isOwner, saveProfile, ...prop
     )
 }
 
-const ProfileInfoDescription = ({profile, isOwner, onEditMode}) => {
-    return (
-        <div className={classes.description}>
-        {isOwner && <button onClick={onEditMode}>edit</button>}
-
-            <div>
-                <b>Full name</b>: {profile.fullName}
-            </div>
-            <div>
-                <b>Looking for a job</b>: {profile.lookingForAJob ? 'Yes' : 'No'}
-            </div>
-            <div>
-                <b>Mt professional skills</b>: {profile.lookingForAJobDescription}
-            </div>
-            <div>
-                <b>About me</b>: {profile.aboutMe}
-            </div>
-            <div>
-                
-                <b>Contacts</b>: {Object.keys(profile.contacts).map(key => <Contacts key={key} contactTitle={key} contactValue={profile.contacts[key]}/>)}
-            </div>
-        </div>
-    )
-}
-
-    const Contacts = ({contactTitle, contactValue}) => {
-        return (
-            <div>
-                <b>{contactTitle}:</b>{contactValue}
-            </div>
-        )
-    }
 
 export default ProfileInfo;

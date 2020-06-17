@@ -1,11 +1,10 @@
 import React from 'react';
-import classes from './ProfileInfo.module.css';
+import classes from './ProfileInfo.module.scss';
 import {CreateField, Input, Textarea} from './../../../Common/FormsControls/index'
 import style from './../../../Common/FormsControls/style.module.scss'
 import { reduxForm } from 'redux-form';
 
 const ProfileInfoDescriptionForm = ({profile,handleSubmit,error}) => {
-    debugger
     return (
         <form className={classes.description} onSubmit={handleSubmit}>
         <button>save</button>
@@ -25,7 +24,6 @@ const ProfileInfoDescriptionForm = ({profile,handleSubmit,error}) => {
                 <b>About me</b>: {CreateField('aboutMe','About me', Textarea)}
             </div>
             <div>
-                
                 <b>Contacts</b>: {Object.keys(profile.contacts).map(key => <div key={key}><b>{key}:{CreateField(`contacts.${key}`, `${key}`, Input )}</b></div>)}
             </div>
         </form>

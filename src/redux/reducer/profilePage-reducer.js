@@ -93,8 +93,13 @@ export const getStatus = (userId) => async (dispatch) => {
     dispatch(setStatus(response))
 }
 export const updateStatus = (status) => async (dispatch) => {
-    let response = await profileAPI.updateStatus(status)
-    if(response.data.resultCode === 0) dispatch(setStatus(status))
+    try {
+        let response = await profileAPI.updateStatus(status)
+        if(response.data.resultCode === 0) dispatch(setStatus(status))
+        
+    } catch (error) {
+        debugger
+    }
 }
 export const getProfileThunk = (userId) => async (dispatch) => {
     let response = await profileAPI.setProfile(userId)
@@ -109,12 +114,22 @@ export const savePhoto = (file) => async (dispatch) => {
 export const saveProfile = (profile) => async (dispatch, getState) => {
     const userId = getState().auth.userId
     const response  = await profileAPI.saveProfile(profile)
-    debugger
     if(response.data.resultCode === 0) {
         dispatch(getProfileThunk(userId))
     } else {
         let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Other error'
-        dispatch(stopSubmit('edit-profile', {_error: message}))
+        function createErrorValue (str) {
+            const ErrorValue = {}
+            const key = str.slice(str.indexOf('->') + 2, str.length - 1).toLowerCase()
+            const value = str
+            ErrorValue[key] = value
+            return ErrorValue
+        }
+        message.indexOf('Contacts') != -1 
+            ? dispatch(stopSubmit('edit-profile', {'contacts': createErrorValue(message)}))
+            :dispatch(stopSubmit('edit-profile', {_error: message}))
+        // const contactsType = parseError(message)
+        // dispatch(stopSubmit('edit-profile', {'contacts': {contactsType: message}}))
         return Promise.reject()
     }
 }

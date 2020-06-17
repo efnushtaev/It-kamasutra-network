@@ -2,18 +2,21 @@ import React from 'react'
 import styles from './style.module.scss'
 import { Field } from 'redux-form'
 
-const FormControl = ({meta:{touched,error}, children}) => {
-    const hasError = touched && error
+const FormControl = ({meta:{touched,error,active}, input:{onBlur}, children}) => {
+    
+    const hasError = touched && active && error
+    debugger
     return (
         <div className={hasError ? styles.error + ' ' + styles.formControl : styles.formControl}>
             {children}
-            <span>{error}</span>
+            {hasError ? <span>{error}</span> : null}
         </div>
     )
 }
 
 export const Textarea = (props) => {
     const {input, meta, children, ...restProps} = props
+    
     return (
         <FormControl {...props}><textarea {...input} {...restProps} /></FormControl>
     )

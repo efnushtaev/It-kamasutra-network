@@ -1,0 +1,102 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 60px;
+  font-family: 'Raleway';
+}
+
+.ava {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.ava>label {
+  cursor: pointer;
+  border-radius: 4px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 200px;
+  width: 200px;
+  background: rgba(0,0,0,0) url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANPSURBVHgB7VohdNswED33hSzUg8lgBle4DK40pR1s6XDZNriVtYOlCWzpCrfBlDZwpSlsxtbC7P9abmUlku1E9lP6/N/Tc2xfbH3dnXR3ViTAfD7v4PABrSdh4QbtZxRFl3mCEUjEOH5Ba0u4OAeZXy6BLbQDCZsEMcCAO/vYkkVzupUw0JanAeaR5n9tE24Z5zOo8LMEAGhggMNuUfkteSZoiISGhkhoaIiEhoZIaGiIhIaGSGh4NkRaEi6Y5o618zuXcLBEkBdd4XBVVL7xkdDg1bSQnm7j8EK7NIGJ3DnkmYv3jP/co93ifzdSAr59ZEeyxYxPYjip6jzl+mix7UGQm0lSbBiDlLXokKI2Z1cE9iQhUASxku3jvyQyBKGZTbgWH1Em902KkzBBLR/hOdaqSuUaUS8fWG7T7P6g/ZUnE2T96pUsNzsW6kjq1PS9qomQxDItsPMXLttX9Wj60jvjFokc4v6xTqZq0zJJ0MbZgZM8B+ashTaSZMIwfYMk9/QLda4jKYncGUgHHRyNZMbGLU4CO+lJnSEKiezi5en5NK/CroPawX9fSnZ6p89c0sTq1Ag70NfaGymPU8maGaf09/yxUSGKcu5z4/KDeW1crKWi4ql2qc0p2beP/BBH2GHgXlYHyXS1822vRMrOSGtgItlvJ92NDOMxYFPjUrzJ+Yg+e8W+8xF+4u5ol5wR65oY6ie+nZ2OXsu3etMffZvWP+O8IzXBNxHTCbtSE3yblplnMwS/kBUAf+vLYghvhfd1BB1gGJF+6I+56q64vpTytyqmXzOiLfzRfx1UQeS3ZCsnPVeu7Qve8xFGqOg4taJ3nnkDE6RxiUdxQPTtTTS1Q5twVSs7O2EuhPtlNMMBUdkhn0MSH13ylRBRecOxLFbQqZkDtUcsF6yFoTE3pybMbU71VFE4kqx0LOlEWnRLq+1TvTyqlVFfo72V5XvJhpKY7uM97qD7bgiXiY3O0ImJS0CNPsnkaWFWQIZaGDG5wnOPdHlqhKOhz9dFEyMid+edphkW6VwLXN57WQsb2YJQ+siZ5HwNWhfKaVmj+qo6VAaUT2thVmtp0T4xYnzBviR2WRlUQnSizI1WwEoKSzx6TMatiJSjpVwXjQr+A5BVC4Z7++L3AAAAAElFTkSuQmCC') center center no-repeat ;
+  opacity: 0;
+  transition: .3s;
+}
+
+.ava>label:hover {
+  background: rgba(0,0,0,0.8) url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA3CAYAAABO8hkCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANPSURBVHgB7VohdNswED33hSzUg8lgBle4DK40pR1s6XDZNriVtYOlCWzpCrfBlDZwpSlsxtbC7P9abmUlku1E9lP6/N/Tc2xfbH3dnXR3ViTAfD7v4PABrSdh4QbtZxRFl3mCEUjEOH5Ba0u4OAeZXy6BLbQDCZsEMcCAO/vYkkVzupUw0JanAeaR5n9tE24Z5zOo8LMEAGhggMNuUfkteSZoiISGhkhoaIiEhoZIaGiIhIaGSGh4NkRaEi6Y5o618zuXcLBEkBdd4XBVVL7xkdDg1bSQnm7j8EK7NIGJ3DnkmYv3jP/co93ifzdSAr59ZEeyxYxPYjip6jzl+mix7UGQm0lSbBiDlLXokKI2Z1cE9iQhUASxku3jvyQyBKGZTbgWH1Em902KkzBBLR/hOdaqSuUaUS8fWG7T7P6g/ZUnE2T96pUsNzsW6kjq1PS9qomQxDItsPMXLttX9Wj60jvjFokc4v6xTqZq0zJJ0MbZgZM8B+ashTaSZMIwfYMk9/QLda4jKYncGUgHHRyNZMbGLU4CO+lJnSEKiezi5en5NK/CroPawX9fSnZ6p89c0sTq1Ag70NfaGymPU8maGaf09/yxUSGKcu5z4/KDeW1crKWi4ql2qc0p2beP/BBH2GHgXlYHyXS1822vRMrOSGtgItlvJ92NDOMxYFPjUrzJ+Yg+e8W+8xF+4u5ol5wR65oY6ie+nZ2OXsu3etMffZvWP+O8IzXBNxHTCbtSE3yblplnMwS/kBUAf+vLYghvhfd1BB1gGJF+6I+56q64vpTytyqmXzOiLfzRfx1UQeS3ZCsnPVeu7Qve8xFGqOg4taJ3nnkDE6RxiUdxQPTtTTS1Q5twVSs7O2EuhPtlNMMBUdkhn0MSH13ylRBRecOxLFbQqZkDtUcsF6yFoTE3pybMbU71VFE4kqx0LOlEWnRLq+1TvTyqlVFfo72V5XvJhpKY7uM97qD7bgiXiY3O0ImJS0CNPsnkaWFWQIZaGDG5wnOPdHlqhKOhz9dFEyMid+edphkW6VwLXN57WQsb2YJQ+siZ5HwNWhfKaVmj+qo6VAaUT2thVmtp0T4xYnzBviR2WRlUQnSizI1WwEoKSzx6TMatiJSjpVwXjQr+A5BVC4Z7++L3AAAAAElFTkSuQmCC') center center no-repeat ;
+  opacity: 1;
+  transition: .3s;
+}
+
+.ava>label>input { 
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  opacity: 0;
+}
+
+.ava>img {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  width: 200px;
+  height: 200px;
+  display: block;
+}
+
+.description {
+  width: 100%;
+  margin-left: 40px;
+
+}
+
+.status>span{
+  color: #969696;
+  font-size: 18px;
+  cursor: pointer;
+  &:hover {
+    opacity:.6;
+  }
+}
+
+.description__info {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-top: 8px;
+  & img {
+    cursor: pointer;
+    &:hover{
+      opacity: .6;
+    }
+  }
+}
+
+.description__infoContainer {
+  padding-left: 8px;
+  color: #464646;
+}
+
+.description__fullName {
+  font-size: 32px; 
+}
+
+.description__lookingForAJob {
+  padding: 4px 0px;
+}
+.description__contacts {
+  padding-top: 12px;
+}
+
+.description__contactsContainer {
+  display: flex;
+  flex-direction: column;
+  &>div{
+    padding-left: 12px;
+  }
+}
+
+.description__contactTitle {
+  text-transform: uppercase;
+}

@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: row;
-  padding: 20px 60px;
+  padding: 20px;
   font-family: 'Raleway';
 }
 
@@ -48,7 +48,59 @@
 .description {
   width: 100%;
   margin-left: 40px;
-
+}
+.descriptionEdit {
+  max-width: 400px;
+  width: 100%;
+  margin-left: 40px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  color: #464646;
+  & button {
+    display: block;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: 0px;
+    padding: 4px 12px;
+    cursor: pointer;
+  }
+  & b {
+    padding-left: 4px;
+  }
+  & > div:not(:nth-child(1)) {
+    padding-top: 12px;
+  }
+  & > div:nth-child(1) {
+    text-transform: uppercase;
+    color: #464646;
+  }
+  & > div:nth-child(2) > div, & > div:nth-child(3) > div {
+    width: 100%;
+    padding-left: 8px;
+  }
+  & > div:nth-child(1), & > div:nth-child(2), & > div:nth-child(3) {
+    display: flex;
+    align-items: center;
+  }
+  & > div:nth-child(6) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  & > div:nth-child(6) > div {
+    padding-top: 8px;
+    padding-left: 4px;
+    text-transform: capitalize;
+    & > div {
+      margin-left: -4px;
+    }
+  }
+  & input:not([type='checkbox']), & textarea {
+    padding: 4px 8px;
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+  }
 }
 
 .status>span{

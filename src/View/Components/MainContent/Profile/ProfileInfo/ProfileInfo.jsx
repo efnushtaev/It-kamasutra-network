@@ -6,7 +6,6 @@ import ProfileInfoDescriptionForm from './ProfileInfoDescriptionForm';
 
 let ProfileInfo = ({profile, status, updateStatus, isOwner, saveProfile, ...props}) => {
     const [editMode, setEditMode] = useState(false)
-
     if(!profile){
         return (
             <Preloader />

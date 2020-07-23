@@ -6,8 +6,8 @@ import { reduxForm } from 'redux-form';
 
 const ProfileInfoDescriptionForm = ({profile,handleSubmit,error}) => {
     return (
-        <form className={classes.description} onSubmit={handleSubmit}>
-        <button>save</button>
+        <form className={classes.descriptionEdit} onSubmit={handleSubmit}>
+        <div><span>Profile information editor</span><button>save</button></div>
         {error && <div className={style.formError}>
                 {error}
             </div>}
@@ -24,7 +24,7 @@ const ProfileInfoDescriptionForm = ({profile,handleSubmit,error}) => {
                 <b>About me</b>: {CreateField('aboutMe','About me', Textarea)}
             </div>
             <div>
-                <b>Contacts</b>: {Object.keys(profile.contacts).map(key => <div key={key}><b>{key}:{CreateField(`contacts.${key}`, `${key}`, Input )}</b></div>)}
+                {Object.keys(profile.contacts).map(key => <div key={key}>{key}:{CreateField(`contacts.${key}`, `${key}`, Input )}</div>)}
             </div>
         </form>
     )

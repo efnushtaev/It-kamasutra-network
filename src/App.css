@@ -5,11 +5,12 @@
     "h h"
     "n c";
   grid-template-rows: 50px 1fr;
-  grid-template-columns: minmax(200px, 20%) 80%;
+  grid-template-columns: minmax(200px, 16%) 84%;
 
 }
 
 .app-wrapper-content {
+  padding: 36px 60px 60px 36px;
   position: relative;
   grid-area: c;
   background-color: #EBEBEB;

@@ -11,7 +11,6 @@ export const WithAuthRedirect = (Component) => {
         render() {
             if (!this.props.isAuth) return <Redirect to='/login'/>;
             return <Component {...this.props} />
-
         }
     }
     let ConnectedProfileContainerRedirect = connect(mapStateToPropsForRedirect)(AuthRedirectComponent);

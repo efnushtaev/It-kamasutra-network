@@ -5,7 +5,7 @@ import { Field } from 'redux-form'
 const FormControl = ({meta:{touched,error,active}, input:{onBlur}, children}) => {
     
     const hasError = touched && active && error
-    debugger
+    
     return (
         <div className={hasError ? styles.error + ' ' + styles.formControl : styles.formControl}>
             {children}

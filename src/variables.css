@@ -1,0 +1,24 @@
+:root {
+  --color-white: #fff;
+  --color-blue1: #267498;
+  --color-blue2: #165A79;
+  --color-red: #EB5757;
+  --color-green: #27AE60;
+  --color-grey1: #202020;
+  --color-grey2: #404040;
+  --color-grey3: #606060;
+  --color-grey4: #808080;
+  --color-grey5: #A0A0A0;
+  --color-grey6: #C0C0C0;
+  --color-grey7: #EEECEC;
+  --color-bg1: #F9F9F9;
+  --color-bg2: #EBEBEB;
+
+  --font-size-sx: 12px;
+  --font-size-s: 14px;
+  --font-size-m: 16px;
+  --font-size-l: 18px;
+  --font-size-lx: 20px;
+  --font-size-h1: 56px;
+}
+

@@ -1,0 +1,33 @@
+@import './../../../variables.css';
+
+.item a {
+  text-decoration: none;
+}
+
+.navigation {
+  grid-area: n;
+  background: var(--color-bg1);
+  padding-left: 60px;
+  padding-top: 24px;
+
+  &>div {
+    margin-bottom: 12px;
+
+    &>a {
+      font-weight: 200;
+      font-size: 1.25em;
+      line-height: 160%;
+      text-transform: uppercase;
+      color: var(--color-grey2);
+      cursor: pointer;
+    }
+
+    &>a:hover {
+      opacity: .6;
+    }
+  }
+
+  &>div:nth-last-child(1) {
+    margin-top: 40px;
+  }
+}

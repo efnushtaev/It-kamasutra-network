@@ -11,15 +11,17 @@ let initialState = {
     postsData: [{
             id: 1,
             message: 'Hi! this is a first post',
-            likesCount: '23'
+            likesCount: '23',
+            isLiked: true
         },
         {
             id: 2,
             message: 'And this is a second one',
-            likesCount: '11'
+            likesCount: '11',
+            isLiked: false
         }
     ],
-    newPostText: '',
+    newPostBody: '',
     profile: null,
     status: ''
 }
@@ -29,12 +31,13 @@ const profilePageReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
             return {
+                ...state,
                 postsData: [...state.postsData, {
                     id: 3,
                     message: action.text,
                     likesCount: 0
                 }],
-                newPostText: ''
+                newPostBody: ''
             };
         }
         case SET_USER_PROFILE: {
@@ -98,7 +101,7 @@ export const updateStatus = (status) => async (dispatch) => {
         if(response.data.resultCode === 0) dispatch(setStatus(status))
         
     } catch (error) {
-        debugger
+        
     }
 }
 export const getProfileThunk = (userId) => async (dispatch) => {
